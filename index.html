@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Tailwind local -->
-  <script src="/static/vendor/tailwind.min.js"></script>
+  <script src="/vendor/tailwind.min.js"></script>
 
   <!-- Fonts: Inter (latin only) + Material Symbols — async so they don't block render -->
   <link rel="preload" as="style"
@@ -24,9 +24,9 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet"/></noscript>
 
   <!-- Alpine.js local — defer so it doesn't block HTML parse -->
-  <script defer src="/static/vendor/alpine.min.js"></script>
+  <script defer src="/vendor/alpine.min.js"></script>
 
-  <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
   
@@ -41,14 +41,14 @@
 <meta property="og:site_name" content="THÉP SƠN LÂM Industrial Core">
 <meta property="og:title" content="THÉP SƠN LÂM Industrial Core — Nhà xưởng & Xe cẩu tại Việt Nam">
 <meta property="og:description" content="Cho thuê nhà xưởng xây sẵn KCN Stavian Vĩnh Phúc. Dịch vụ xe cẩu 25–500 tấn. Tư vấn FDI hạ tầng khu công nghiệp. Bàn giao ngay Q3/2026.">
-<meta property="og:image" content="http://localhost:8000/static/brain/factory_hero.jpg">
+<meta property="og:image" content="/brain/factory_hero.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="http://localhost:8000/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="THÉP SƠN LÂM Industrial Core — Nhà xưởng & Xe cẩu tại Việt Nam">
 <meta name="twitter:description" content="Cho thuê nhà xưởng xây sẵn KCN Stavian Vĩnh Phúc. Dịch vụ xe cẩu 25–500 tấn. Bàn giao ngay Q3/2026.">
-<meta name="twitter:image" content="http://localhost:8000/static/brain/factory_hero.jpg">
+<meta name="twitter:image" content="/brain/factory_hero.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -579,10 +579,10 @@
 <!-- NEW PREMIUM HERO SECTION -->
 <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0b1c30]" x-data="{
            slides: [
-             '/static/brain/factory_hero.jpg',
-             '/static/brain/wh_real2.jpg',
-             '/static/brain/wh_real3.jpg',
-             '/static/brain/crane1.jpg'
+             '/brain/factory_hero.jpg',
+             '/brain/wh_real2.jpg',
+             '/brain/wh_real3.jpg',
+             '/brain/crane1.jpg'
            ],
            current: 0,
            init() { setInterval(() => this.current = (this.current + 1) % this.slides.length, 5000) }
