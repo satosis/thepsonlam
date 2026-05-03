@@ -51,7 +51,7 @@
   <meta property="og:title" content="Nhà xưởng xây sẵn cho thuê tại KCN Thép Sơn Lâm Phú Thọ — THÉP SƠN LÂM">
   <meta property="og:description"
     content="Cho thuê nhà xưởng xây sẵn KCN Thép Sơn Lâm Phú Thọ. 2.584–3.416 m², cao 10,85 m, tải trọng 3 T/m². Hạ tầng hoàn chỉnh, bàn giao ngay Q3/2026.">
-  <meta property="og:image" content="https://satosis.github.io/thepsonlam/brain/real_factory_1.webp">
+  <meta property="og:image" content="https://satosis.github.io/thepsonlam/brain/wh_real1.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://satosis.github.io/thepsonlam/nha-xuong-trung-ha.html">
@@ -59,7 +59,7 @@
   <meta name="twitter:title" content="Nhà xưởng xây sẵn cho thuê tại KCN Thép Sơn Lâm Phú Thọ — THÉP SƠN LÂM">
   <meta name="twitter:description"
     content="2.584–3.416 m², cao 10,85 m, tải trọng 3 T/m². Bàn giao Q3/2026. Hạ tầng điện, nước, PCCC hoàn chỉnh.">
-  <meta name="twitter:image" content="https://satosis.github.io/thepsonlam/brain/real_factory_1.webp">
+  <meta name="twitter:image" content="https://satosis.github.io/thepsonlam/brain/wh_real1.webp">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,7 +69,7 @@
       "@id": "https://satosis.github.io/thepsonlam/nha-xuong#listing",
       "name": "Nhà xưởng xây sẵn cho thuê tại KCN Thép Sơn Lâm Phú Thọ",
       "description": "Cho thuê nhà xưởng xây sẵn tại Khu công nghiệp Thép Sơn Lâm, Phú Thọ. Diện tích từ 2.584–3.416 m², chiều cao 10,85 m, tải trọng sàn 3 tấn/m². Điện 3 pha, nước, PCCC đầy đủ. Bàn giao Quý III/2026.",
-      "image": "https://satosis.github.io/thepsonlam/brain/real_factory_1.webp",
+      "image": "https://satosis.github.io/thepsonlam/brain/wh_real1.webp",
       "url": "https://satosis.github.io/thepsonlam/nha-xuong-trung-ha.html",
       "address": {
         "@type": "PostalAddress",
@@ -196,6 +196,45 @@
         }
       });
       Alpine.store('i18n').init();
+
+      // Lightbox Logic
+      Alpine.store('lightbox', {
+        open: false,
+        imgSrc: '',
+        show(src) { this.imgSrc = src; this.open = true; },
+        close() { this.open = false; }
+      });
+    });
+
+    // Global image click handler and dynamic lightbox injection
+    document.addEventListener('DOMContentLoaded', () => {
+      const style = document.createElement('style');
+      style.textContent = `
+        img:not([alt*="logo"]):not(.no-zoom) { cursor: pointer !important; transition: opacity 0.2s; }
+        img:not([alt*="logo"]):not(.no-zoom):hover { opacity: 0.8; }
+        [x-cloak] { display: none !important; }
+      `;
+      document.head.appendChild(style);
+
+      const modal = document.createElement('div');
+      modal.setAttribute('x-data', '{}');
+      modal.setAttribute('x-show', '$store.lightbox.open');
+      modal.setAttribute('x-cloak', '');
+      modal.setAttribute('@click', '$store.lightbox.close()');
+      modal.setAttribute('@keydown.escape.window', '$store.lightbox.close()');
+      modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4';
+      modal.innerHTML = `
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-orange-500 transition-colors">&times;</button>
+        <img :src="$store.lightbox.imgSrc" class="max-w-full max-h-full rounded-xl shadow-2xl shadow-orange-500/10" @click.stop>
+      `;
+      document.body.appendChild(modal);
+
+      document.body.addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG' && !e.target.closest('.no-zoom') && !e.target.closest('button')) {
+          const src = e.target.src;
+          if (src) Alpine.store('lightbox').show(src);
+        }
+      });
     });
   </script>
   <script id="tailwind-config">
@@ -637,7 +676,7 @@
 
 
 
-    <script>window.__wh_slides__ = ["brain/real_factory_1.webp", "brain/real_factory_2.webp", "brain/real_factory_3.webp", "brain/real_factory_4.webp", "brain/real_factory_5.webp", "brain/real_factory_6.webp", "brain/real_factory_7.webp", "brain/real_factory_8.webp", "brain/real_factory_9.webp", "brain/real_factory_10.webp", "brain/real_factory_11.webp", "brain/real_factory_12.webp"];</script>
+    <script>window.__wh_slides__ = ["brain/wh_real1.webp", "brain/wh_real2.webp", "brain/wh_real3.webp", "brain/wh_real4.webp"];</script>
     <section class="relative w-full min-h-[580px] flex items-end overflow-hidden bg-[#0b1c30]" x-data="{
            slides: [],
            cur: 0,
@@ -772,7 +811,7 @@
             </div>
           </div>
           <div class="rounded-3xl overflow-hidden shadow-2xl relative h-full min-h-[600px] lg:min-h-full">
-            <img src="brain/real_factory_1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Nhà xưởng KCN Trung Hà - Phú Thọ">
+            <img src="brain/wh_real1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover" alt="Nhà xưởng KCN Trung Hà - Phú Thọ">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0b1c30]/90 via-[#0b1c30]/20 to-transparent"></div>
             <div class="absolute bottom-8 left-8 right-8">
               <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-white">
@@ -911,16 +950,16 @@
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div class="rounded-3xl overflow-hidden h-64">
-              <img src="brain/real_factory_6.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Giao thông KCN Trung Hà">
+              <img src="brain/wh_real2.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Giao thông KCN Trung Hà">
             </div>
             <div class="rounded-3xl overflow-hidden h-64 mt-8">
-              <img src="brain/real_factory_7.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Nhà xưởng nội thất KCN Trung Hà">
+              <img src="brain/wh_real3.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Nhà xưởng nội thất KCN Trung Hà">
             </div>
             <div class="rounded-3xl overflow-hidden h-64">
-              <img src="brain/real_factory_8.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Khuôn viên KCN Trung Hà">
+              <img src="brain/wh_real4.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Khuôn viên KCN Trung Hà">
             </div>
             <div class="rounded-3xl overflow-hidden h-64 mt-8">
-              <img src="brain/real_factory_9.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Nhà xưởng sản xuất KCN Trung Hà">
+              <img src="brain/wh_real1.webp" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Nhà xưởng sản xuất KCN Trung Hà">
             </div>
           </div>
         </div>
@@ -1080,27 +1119,27 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 h-[480px]">
 
           <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden">
-            <img src="brain/real_factory_1.webp" class="gallery-img" alt="Nhà xưởng KCN Trung Hà - Phú Thọ toàn cảnh">
+            <img src="brain/wh_real1.webp" class="gallery-img" alt="Nhà xưởng KCN Trung Hà - Phú Thọ toàn cảnh">
           </div>
 
 
           <div class="rounded-2xl overflow-hidden">
-            <img src="brain/real_factory_2.webp" loading="lazy" class="gallery-img h-full"
+            <img src="brain/wh_real2.webp" loading="lazy" class="gallery-img h-full"
               alt="Khu vực sản xuất nhà xưởng KCN Thép Sơn Lâm Phú Thọ">
           </div>
 
           <div class="rounded-2xl overflow-hidden">
-            <img src="brain/real_factory_3.webp" loading="lazy" class="gallery-img h-full"
+            <img src="brain/wh_real3.webp" loading="lazy" class="gallery-img h-full"
               alt="Khu vực sản xuất nhà xưởng KCN Thép Sơn Lâm Phú Thọ">
           </div>
 
           <div class="rounded-2xl overflow-hidden">
-            <img src="brain/real_factory_4.webp" loading="lazy" class="gallery-img h-full"
+            <img src="brain/wh_real4.webp" loading="lazy" class="gallery-img h-full"
               alt="Khu vực sản xuất nhà xưởng KCN Thép Sơn Lâm Phú Thọ">
           </div>
 
           <div class="rounded-2xl overflow-hidden">
-            <img src="brain/real_factory_1.webp" loading="lazy" class="gallery-img h-full"
+            <img src="brain/wh_real1.webp" loading="lazy" class="gallery-img h-full"
               alt="Khu vực sản xuất nhà xưởng KCN Thép Sơn Lâm Phú Thọ">
           </div>
 

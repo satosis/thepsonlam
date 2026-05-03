@@ -159,6 +159,45 @@
         }
       });
       Alpine.store('i18n').init();
+
+      // Lightbox Logic
+      Alpine.store('lightbox', {
+        open: false,
+        imgSrc: '',
+        show(src) { this.imgSrc = src; this.open = true; },
+        close() { this.open = false; }
+      });
+    });
+
+    // Global image click handler and dynamic lightbox injection
+    document.addEventListener('DOMContentLoaded', () => {
+      const style = document.createElement('style');
+      style.textContent = `
+        img:not([alt*="logo"]):not(.no-zoom) { cursor: pointer !important; transition: opacity 0.2s; }
+        img:not([alt*="logo"]):not(.no-zoom):hover { opacity: 0.8; }
+        [x-cloak] { display: none !important; }
+      `;
+      document.head.appendChild(style);
+
+      const modal = document.createElement('div');
+      modal.setAttribute('x-data', '{}');
+      modal.setAttribute('x-show', '$store.lightbox.open');
+      modal.setAttribute('x-cloak', '');
+      modal.setAttribute('@click', '$store.lightbox.close()');
+      modal.setAttribute('@keydown.escape.window', '$store.lightbox.close()');
+      modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4';
+      modal.innerHTML = `
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-orange-500 transition-colors">&times;</button>
+        <img :src="$store.lightbox.imgSrc" class="max-w-full max-h-full rounded-xl shadow-2xl shadow-orange-500/10" @click.stop>
+      `;
+      document.body.appendChild(modal);
+
+      document.body.addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG' && !e.target.closest('.no-zoom') && !e.target.closest('button')) {
+          const src = e.target.src;
+          if (src) Alpine.store('lightbox').show(src);
+        }
+      });
     });
   </script>
   <script id="tailwind-config">
@@ -825,7 +864,7 @@
       </div>
     </section>
 
-    <script>window.__projects__ = [{ "area": "4.032 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "height": "10.85", "id": 1, "image": "brain/real_factory_1.webp", "load": "3 Tấn/m²", "load_capacity": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 1 - Trung Hà" }, { "area": "2.730 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. Tiêu chuẩn cao cấp.", "height": "10.85", "id": 2, "image": "brain/real_factory_2.webp", "load": "3 Tấn/m²", "load_capacity": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 2 - Trung Hà" }, { "area": "4.032 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. PCCC tự động.", "height": "8", "id": 3, "image": "brain/real_factory_3.webp", "load": "-", "load_capacity": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 1 - Cổ Tiết" }, { "area": "2.730 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Hệ thống đồng bộ.", "height": "8", "id": 4, "image": "brain/real_factory_1.webp", "load": "-", "load_capacity": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 2 - Cổ Tiết" }];</script>
+    <script>window.__projects__ = [{ "area": "4.032 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "height": "10.85", "id": 1, "image": "brain/wh_real1.webp", "load": "3 Tấn/m²", "load_capacity": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 1 - Trung Hà" }, { "area": "2.730 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. Tiêu chuẩn cao cấp.", "height": "10.85", "id": 2, "image": "brain/wh_real2.webp", "load": "3 Tấn/m²", "load_capacity": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 2 - Trung Hà" }, { "area": "4.032 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. PCCC tự động.", "height": "8", "id": 3, "image": "brain/real_factory_3.webp", "load": "-", "load_capacity": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 1 - Cổ Tiết" }, { "area": "2.730 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Hệ thống đồng bộ.", "height": "8", "id": 4, "image": "brain/real_factory_1.webp", "load": "-", "load_capacity": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 2 - Cổ Tiết" }];</script>
     <section class="py-24 bg-white" x-data="{
     activeProject: 0,
     projects: [],
@@ -995,9 +1034,9 @@
 
           <article class="group cursor-pointer">
             <div class="aspect-video rounded-3xl overflow-hidden mb-6">
-              <img src="brain/real_factory_3.webp" loading="lazy"
+              <img src="brain/wh_real3.webp" loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                alt="Khai trương Cụm công nghiệp Cổ Tiết">
+                alt="Khai trương KCN Trung Hà">
             </div>
             <span class="text-[10px] font-black text-orange-500 uppercase tracking-widest mb-2 block">Tin tức •
               2026-05-01</span>

@@ -111,6 +111,45 @@
                 }
             });
             Alpine.store('i18n').init();
+
+            // Lightbox Logic
+            Alpine.store('lightbox', {
+                open: false,
+                imgSrc: '',
+                show(src) { this.imgSrc = src; this.open = true; },
+                close() { this.open = false; }
+            });
+        });
+
+        // Global image click handler and dynamic lightbox injection
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.textContent = `
+        img:not([alt*="logo"]):not(.no-zoom) { cursor: pointer !important; transition: opacity 0.2s; }
+        img:not([alt*="logo"]):not(.no-zoom):hover { opacity: 0.8; }
+        [x-cloak] { display: none !important; }
+      `;
+            document.head.appendChild(style);
+
+            const modal = document.createElement('div');
+            modal.setAttribute('x-data', '{}');
+            modal.setAttribute('x-show', '$store.lightbox.open');
+            modal.setAttribute('x-cloak', '');
+            modal.setAttribute('@click', '$store.lightbox.close()');
+            modal.setAttribute('@keydown.escape.window', '$store.lightbox.close()');
+            modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4';
+            modal.innerHTML = `
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-orange-500 transition-colors">&times;</button>
+        <img :src="$store.lightbox.imgSrc" class="max-w-full max-h-full rounded-xl shadow-2xl shadow-orange-500/10" @click.stop>
+      `;
+            document.body.appendChild(modal);
+
+            document.body.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG' && !e.target.closest('.no-zoom') && !e.target.closest('button')) {
+                    const src = e.target.src;
+                    if (src) Alpine.store('lightbox').show(src);
+                }
+            });
         });
     </script>
     <script id="tailwind-config">
