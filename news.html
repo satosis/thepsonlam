@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức - THÉP SƠN LÂM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">THÉP SƠN LÂM</span>
+                <span class="logo-sub">Industrial Core</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+                    <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="projects.html" class="nav-link">Nhà xưởng</a></li>
+                    <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
+                    <li><a href="news.html" class="nav-link">Tin tức</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Liên hệ ngay</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Tin tức & Sự kiện</h1>
+            <p class="page-subtitle">Cập nhật những thông tin mới nhất về thị trường bất động sản công nghiệp và hoạt động của THÉP SƠN LÂM.</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section">
+        <div class="container">
+            <div class="news-grid">
+                <!-- News Item 1 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="assets/images/hero_factory.png" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">10 Tháng 4, 2026</span>
+                        <h3 class="news-title"><a href="#">Khánh thành cụm nhà xưởng mới tại Phú Thọ</a></h3>
+                        <p class="news-excerpt">THÉP SƠN LÂM chính thức đưa vào hoạt động cụm nhà xưởng xây sẵn mới với tổng diện tích lên tới hơn 6,000 m2 tại Cụm công nghiệp Cổ Tiết.</p>
+                    </div>
+                </div>
+                
+                <!-- News Item 2 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="assets/images/aerial_factory.png" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">05 Tháng 3, 2026</span>
+                        <h3 class="news-title"><a href="#">Xu hướng chuyển dịch dòng vốn FDI vào bất động sản công nghiệp phía Bắc</a></h3>
+                        <p class="news-excerpt">Phân tích chuyên sâu về sự dịch chuyển dòng vốn đầu tư nước ngoài vào các tỉnh phía Bắc, đặc biệt là các khu vực có hạ tầng kết nối tốt như Phú Thọ.</p>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="assets/images/interior_factory.png" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">20 Tháng 2, 2026</span>
+                        <h3 class="news-title"><a href="#">Nghiệm thu thành công hệ thống PCCC chuẩn mới</a></h3>
+                        <p class="news-excerpt">Toàn bộ hệ thống nhà xưởng của THÉP SƠN LÂM đã được cơ quan chức năng nghiệm thu hệ thống Phòng cháy chữa cháy tự động theo tiêu chuẩn mới nhất.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding-top: 0;">
+                <p>&copy; 2026 THÉP SƠN LÂM Industrial Core.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

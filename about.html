@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - THÉP SƠN LÂM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (Same across pages) -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">THÉP SƠN LÂM</span>
+                <span class="logo-sub">Industrial Core</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+                    <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="projects.html" class="nav-link">Nhà xưởng</a></li>
+                    <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
+                    <li><a href="news.html" class="nav-link">Tin tức</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Liên hệ ngay</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Về THÉP SƠN LÂM</h1>
+            <p class="page-subtitle">Đơn vị hàng đầu cung cấp giải pháp nhà xưởng xây sẵn chất lượng cao tại Việt Nam.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h4 class="subtitle text-primary">Giới thiệu chung</h4>
+                    <h2 class="section-title">Vị trí chiến lược: Cổ Tiết, Phú Thọ</h2>
+                    <p class="about-desc">CÔNG TY TNHH TMDV SƠN LÂM là đơn vị hàng đầu trong cung cấp giải pháp nhà xưởng tại Phú Thọ. Chúng tôi cho thuê nhà xưởng xây sẵn tại khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết, huyện Tam Nông.</p>
+                    <p class="about-desc">Với mục tiêu mang đến không gian sản xuất hiện đại và đồng bộ, chúng tôi không ngừng đầu tư vào hạ tầng kỹ thuật và dịch vụ quản lý vận hành chuyên nghiệp.</p>
+                    
+                    <div class="location-distances">
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">directions_car</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Tới trung tâm Hà Nội</span>
+                                <span class="distance-value">80 km</span>
+                            </div>
+                        </div>
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">flight_takeoff</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Tới sân bay Nội Bài</span>
+                                <span class="distance-value">75 km</span>
+                            </div>
+                        </div>
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">sailing</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Tới cảng Hải Phòng</span>
+                                <span class="distance-value">190 km</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="img-wrapper shadow-lg">
+                        <img src="assets/images/aerial_factory.png" alt="Vị trí nhà xưởng" class="lightbox-trigger">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Định hướng phát triển</h2>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card" style="padding: 2rem;">
+                    <span class="material-symbols-outlined text-accent" style="font-size: 48px; margin-bottom: 1rem;">visibility</span>
+                    <h3 class="news-title">Tầm nhìn</h3>
+                    <p class="text-muted">Trở thành biểu tượng của sự tin cậy trong lĩnh vực cung cấp và phát triển hạ tầng công nghiệp tại Việt Nam.</p>
+                </div>
+                <div class="news-card" style="padding: 2rem;">
+                    <span class="material-symbols-outlined text-accent" style="font-size: 48px; margin-bottom: 1rem;">rocket_launch</span>
+                    <h3 class="news-title">Sứ mệnh</h3>
+                    <p class="text-muted">Cung cấp giải pháp không gian sản xuất đồng bộ, hiện đại, an toàn, giúp doanh nghiệp yên tâm tập trung phát triển kinh doanh.</p>
+                </div>
+                <div class="news-card" style="padding: 2rem;">
+                    <span class="material-symbols-outlined text-accent" style="font-size: 48px; margin-bottom: 1rem;">diamond</span>
+                    <h3 class="news-title">Giá trị cốt lõi</h3>
+                    <p class="text-muted">Chất lượng - Chuyên nghiệp - An toàn - Phát triển bền vững cùng đối tác.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card glass-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Sẵn sàng khởi đầu cơ sở sản xuất mới?</h2>
+                </div>
+                <div class="cta-action">
+                    <a href="contact.html" class="btn btn-primary btn-lg btn-glow">
+                        Liên hệ tư vấn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding-top: 0;">
+                <p>&copy; 2026 THÉP SƠN LÂM Industrial Core.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

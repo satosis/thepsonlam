@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - THÉP SƠN LÂM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">THÉP SƠN LÂM</span>
+                <span class="logo-sub">Industrial Core</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+                    <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="projects.html" class="nav-link">Nhà xưởng</a></li>
+                    <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
+                    <li><a href="news.html" class="nav-link">Tin tức</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Liên hệ ngay</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Liên hệ với chúng tôi</h1>
+            <p class="page-subtitle">Đội ngũ chuyên gia của THÉP SƠN LÂM luôn sẵn sàng lắng nghe và tư vấn giải pháp không gian sản xuất tốt nhất cho doanh nghiệp của bạn.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <h2 class="section-title">Thông tin liên hệ</h2>
+                    <p class="section-desc" style="margin-bottom: 2rem;">Vui lòng liên hệ với chúng tôi qua các kênh dưới đây hoặc để lại lời nhắn trong form, chúng tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+                    
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Địa chỉ</h3>
+                                <p>Khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết, Huyện Tam Nông, Tỉnh Phú Thọ</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Điện thoại</h3>
+                                <p>+84 986 565 666</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>contact@thepsonlam.vn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Họ và tên *</label>
+                            <input type="text" id="name" class="form-control" placeholder="Nhập họ và tên của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="company">Công ty</label>
+                            <input type="text" id="company" class="form-control" placeholder="Nhập tên công ty">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Số điện thoại *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại liên hệ" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Nội dung yêu cầu *</label>
+                            <textarea id="message" class="form-control" placeholder="Bạn quan tâm đến diện tích bao nhiêu? Yêu cầu về điện năng?..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Gửi yêu cầu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding-top: 0;">
+                <p>&copy; 2026 THÉP SƠN LÂM Industrial Core.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
