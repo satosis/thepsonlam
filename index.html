@@ -69,33 +69,26 @@
         </div>
     </section>
 
-    <!-- Featured Asset Section -->
-    <section class="section projects bg-light" id="projects">
+    <!-- Premium Slider Section -->
+    <section class="section premium-slider-section bg-dark" id="premium-projects">
         <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Tài sản nổi bật</h2>
-                <p class="section-desc">Các nhà xưởng cao cấp đang trống, sẵn sàng cho doanh nghiệp của bạn.</p>
-            </div>
-            
-            <div class="project-grid">
-                <div class="project-card main-project">
-                    <div class="project-image-wrapper">
-                        <img src="assets/images/interior_factory.png" alt="Nhà xưởng bên trong" class="project-img lightbox-trigger">
-                        <div class="project-badge">Đang trống</div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="meta-item"><span class="material-symbols-outlined">location_on</span> Cổ Tiết, Phú Thọ</span>
-                            <span class="meta-item"><span class="material-symbols-outlined">aspect_ratio</span> 4.032 m² & 2.730 m²</span>
-                        </div>
-                        <h3 class="project-title">Cho thuê nhà xưởng cao cấp tại Cụm công nghiệp Cổ Tiết</h3>
-                        <p class="project-excerpt">Hệ thống nhà xưởng xây sẵn tại KCN Trung Hà và Cụm công nghiệp Cổ Tiết, Tỉnh Phú Thọ. Trang bị trạm điện 5000 KVA, hệ thống PCCC nghiệm thu chuẩn Bộ Công An, hạ tầng đồng bộ bàn giao ngay.</p>
-                        
-                        <div class="project-actions" style="margin-top: 1rem;">
-                            <a href="projects.html" class="btn btn-primary">Xem chi tiết thông số</a>
-                        </div>
-                    </div>
+            <div class="slider-header">
+                <div class="slider-title-wrapper">
+                    <span class="highlight-badge text-primary text-sm fw-black mb-2 block uppercase tracking-wider">Featured Assets</span>
+                    <h2 class="section-title text-white m-0">Dự án trọng điểm</h2>
                 </div>
+                <div class="slider-controls">
+                    <button id="slider-prev" class="slider-btn shadow-lg" aria-label="Previous">
+                        <span class="material-symbols-outlined">west</span>
+                    </button>
+                    <button id="slider-next" class="slider-btn shadow-lg" aria-label="Next">
+                        <span class="material-symbols-outlined">east</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="premium-slider-container shadow-2xl" id="projects-slider">
+                <!-- JS will inject slider items here -->
             </div>
         </div>
     </section>

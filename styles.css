@@ -1215,3 +1215,224 @@ textarea.form-control {
 .lightbox-trigger {
     cursor: pointer;
 }
+
+/* ==========================================================================
+   Premium Projects Slider
+   ========================================================================== */
+.premium-slider-section {
+    padding: var(--space-xl) 0;
+    overflow: hidden;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-lg);
+}
+
+.highlight-badge {
+    color: var(--c-accent);
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.slider-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-btn:hover {
+    background-color: var(--c-accent);
+    color: #ffffff;
+    border-color: var(--c-accent);
+    transform: scale(1.05);
+}
+
+.premium-slider-container {
+    position: relative;
+    background-color: rgba(11, 28, 48, 0.95);
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    min-height: 550px;
+}
+
+.slider-item {
+    display: none;
+    flex-direction: column;
+    min-height: 550px;
+    animation: fadeInScale 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-item.active {
+    display: flex;
+}
+
+@media (min-width: 992px) {
+    .slider-item {
+        flex-direction: row;
+    }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.slider-image-col {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+@media (min-width: 992px) {
+    .slider-image-col {
+        width: 60%;
+        min-height: auto;
+    }
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 3s ease;
+}
+
+.slider-item.active .slider-img {
+    transform: scale(1.05);
+}
+
+.slider-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(11, 28, 48, 0.8), transparent);
+}
+
+.slider-badge-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.badge-primary {
+    background-color: var(--c-accent);
+    color: #ffffff;
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.location-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-text .material-symbols-outlined {
+    color: var(--c-accent);
+}
+
+.slider-info-col {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    .slider-info-col {
+        width: 40%;
+    }
+}
+
+.info-title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.info-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.spec-label {
+    font-size: 0.65rem;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.spec-value {
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.info-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-full {
+    flex: 1;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+}
+
+.icon-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
