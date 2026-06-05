@@ -3,204 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhà xưởng - THÉP SƠN LÂM</title>
+    <title>Nhà xưởng cho thuê - THÉP SƠN LÂM</title>
+    <meta name="description" content="Danh mục nhà xưởng cho thuê tại KCN Trung Hà và Cụm công nghiệp Cổ Tiết, Phú Thọ.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header" id="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">THÉP SƠN LÂM</span>
-                <span class="logo-sub">Industrial Core</span>
-            </a>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Trang chủ</a></li>
-                    <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
-                    <li><a href="projects.html" class="nav-link">Nhà xưởng</a></li>
-                    <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
-                    <li><a href="news.html" class="nav-link">Tin tức</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Liên hệ ngay</button>
-            </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Nhà xưởng xây sẵn</h1>
-            <p class="page-subtitle">Hệ thống nhà xưởng cao cấp tại Cụm công nghiệp Cổ Tiết, Phú Thọ.</p>
-        </div>
-    </section>
-
-    <!-- Premium Slider Section -->
-    <section class="section premium-slider-section bg-dark" id="premium-projects">
-        <div class="container">
-            <div class="slider-header">
-                <div class="slider-title-wrapper">
-                    <span class="highlight-badge text-primary text-sm fw-black mb-2 block uppercase tracking-wider">Featured Assets</span>
-                    <h2 class="section-title text-white m-0">Dự án trọng điểm</h2>
-                </div>
-                <div class="slider-controls">
-                    <button id="slider-prev" class="slider-btn shadow-lg" aria-label="Previous">
-                        <span class="material-symbols-outlined">west</span>
-                    </button>
-                    <button id="slider-next" class="slider-btn shadow-lg" aria-label="Next">
-                        <span class="material-symbols-outlined">east</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="premium-slider-container shadow-2xl" id="projects-slider">
-                <!-- JS will inject slider items here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Specs Tabs (Specs) -->
-    <section class="section specs bg-light" id="specs">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Thông số kỹ thuật & Ưu điểm</h2>
-                <p class="section-desc">Cơ sở hạ tầng hiện đại, đáp ứng mọi nhu cầu sản xuất khắt khe nhất.</p>
-            </div>
-
-            <div class="tabs-container">
-                <div class="tabs-nav">
-                    <button class="tab-btn active" data-tab="tab-area">
-                        <span class="material-symbols-outlined">straighten</span>
-                        Diện tích
-                    </button>
-                    <button class="tab-btn" data-tab="tab-power">
-                        <span class="material-symbols-outlined">bolt</span>
-                        Trạm biến áp
-                    </button>
-                    <button class="tab-btn" data-tab="tab-security">
-                        <span class="material-symbols-outlined">security</span>
-                        An ninh & PCCC
-                    </button>
-                    <button class="tab-btn" data-tab="tab-cert">
-                        <span class="material-symbols-outlined">verified</span>
-                        Tiêu chuẩn
-                    </button>
-                </div>
-
-                <div class="tabs-content">
-                    <div class="tab-pane active" id="tab-area">
-                        <div class="tab-pane-inner">
-                            <div class="tab-text">
-                                <h3>Đa dạng diện tích thuê</h3>
-                                <p>Chúng tôi cung cấp các tùy chọn diện tích linh hoạt, phù hợp với quy mô từ nhỏ đến lớn của doanh nghiệp.</p>
-                                <ul class="feature-list">
-                                    <li><strong>Xưởng 1:</strong> 4.032 m² (Đang trống)</li>
-                                    <li><strong>Xưởng 2:</strong> 2.730 m² (Đang trống)</li>
-                                    <li>Tải trọng sàn nhà xưởng: 2 - 3 tấn/m²</li>
-                                    <li>Chiều cao thông thủy: 7m - 10m</li>
-                                </ul>
-                            </div>
-                            <div class="tab-image">
-                                <img src="assets/images/interior_factory.png" alt="Diện tích nhà xưởng">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-pane" id="tab-power">
-                        <div class="tab-pane-inner">
-                            <div class="tab-text">
-                                <h3>Hệ thống điện công suất lớn</h3>
-                                <p>Đảm bảo nguồn điện ổn định cho dây chuyền sản xuất công nghiệp nặng và công nghệ cao.</p>
-                                <ul class="feature-list">
-                                    <li>Trạm biến áp công suất lớn: <strong>5000 KVA</strong></li>
-                                    <li>Trạm biến áp khu vực: <strong>TBA 110KV</strong></li>
-                                    <li>Đường dây trung thế riêng biệt</li>
-                                    <li>Hệ thống điện dự phòng khu vực công cộng</li>
-                                </ul>
-                            </div>
-                            <div class="tab-image">
-                                <img src="assets/images/hero_factory.png" alt="Trạm biến áp">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane" id="tab-security">
-                        <div class="tab-pane-inner">
-                            <div class="tab-text">
-                                <h3>An ninh & Phòng cháy chữa cháy</h3>
-                                <p>An toàn tuyệt đối cho tài sản và con người là ưu tiên hàng đầu của chúng tôi.</p>
-                                <ul class="feature-list">
-                                    <li>Hệ thống PCCC tự động được nghiệm thu theo <strong>chuẩn Bộ Công An</strong>.</li>
-                                    <li>Hệ thống camera giám sát 24/7 vòng ngoài.</li>
-                                    <li>Lực lượng bảo vệ tuần tra liên tục.</li>
-                                    <li>Kiểm soát ra vào nghiêm ngặt.</li>
-                                </ul>
-                            </div>
-                            <div class="tab-image">
-                                <div class="placeholder-img flex-center bg-dark text-white" style="height: 100%; min-height: 300px; border-radius: 12px;">
-                                    <span class="material-symbols-outlined" style="font-size: 64px; color: #fd761a;">security</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane" id="tab-cert">
-                        <div class="tab-pane-inner">
-                            <div class="tab-text">
-                                <h3>Tiêu chuẩn Vận hành</h3>
-                                <p>Hệ thống quản lý chuyên nghiệp, đạt chuẩn quốc tế.</p>
-                                <ul class="feature-list">
-                                    <li>Chứng chỉ vận hành <strong>ISO 9001</strong></li>
-                                    <li>Xử lý nước thải tập trung đạt chuẩn A</li>
-                                    <li>Dịch vụ hỗ trợ khách hàng 24/7</li>
-                                    <li>Hỗ trợ thủ tục pháp lý đầu tư</li>
-                                </ul>
-                            </div>
-                            <div class="tab-image">
-                                <img src="assets/images/aerial_factory.png" alt="Toàn cảnh nhà xưởng">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card glass-card">
-                <div class="cta-content">
-                    <h2 class="cta-title">Sẵn sàng khởi đầu cơ sở sản xuất mới?</h2>
-                </div>
-                <div class="cta-action">
-                    <a href="contact.html" class="btn btn-primary btn-lg btn-glow">
-                        Liên hệ tư vấn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-bottom" style="border:none; padding-top: 0;">
-                <p>&copy; 2026 THÉP SƠN LÂM Industrial Core.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <header class="site-header" id="header"><div class="container header-container"><a href="index.html" class="logo"><span class="logo-text">THÉP SƠN LÂM</span><span class="logo-sub">Industrial Core</span></a><nav class="main-nav"><ul class="nav-list"><li><a href="index.html" class="nav-link">Trang chủ</a></li><li><a href="gioi-thieu.html" class="nav-link">Giới thiệu</a></li><li class="nav-item has-dropdown">
+    <a href="projects.html" class="nav-link">Nhà xưởng <span class="material-symbols-outlined dropdown-arrow">expand_more</span></a>
+    <ul class="dropdown-menu">
+        <li><a href="nha-xuong-trung-ha.html">Xưởng KCN Trung Hà</a></li>
+        <li><a href="nha-xuong-co-tiet.html">Xưởng CCN Cổ Tiết</a></li>
+    </ul>
+</li><li><a href="services.html" class="nav-link">Dịch vụ</a></li><li><a href="tin-tuc.html" class="nav-link">Tin tức</a></li><li><a href="lien-he.html" class="nav-link">Liên hệ</a></li></ul></nav><div class="header-actions"><button class="btn btn-primary" onclick="window.location.href='lien-he.html'">Liên hệ ngay</button></div><button class="mobile-menu-toggle" id="mobile-menu-toggle"><span class="material-symbols-outlined">menu</span></button></div></header>
+    <section class="page-header"><div class="container"><h1 class="page-title">Nhà xưởng cho thuê tại Phú Thọ</h1><p class="page-subtitle">Hai cụm sản phẩm chính: KCN Trung Hà và Cụm công nghiệp Cổ Tiết, sẵn sàng bàn giao cho doanh nghiệp sản xuất sạch.</p></div></section>
+    <section class="section"><div class="container"><div class="news-grid">
+        <article class="news-card"><div class="news-image"><img src="assets/images/hero_factory.png" alt="Nhà xưởng KCN Trung Hà"></div><div class="news-content"><span class="news-date">KCN Trung Hà</span><h3 class="news-title"><a href="nha-xuong-trung-ha.html">02 nhà xưởng 4.032 m² & 2.730 m²</a></h3><p class="news-excerpt">Trạm điện 5000 KVA, PCCC tự động, thời hạn sử dụng đất hơn 45 năm. Phù hợp may mặc, điện tử, cơ khí, đóng gói và các ngành nghề sạch.</p><a href="nha-xuong-trung-ha.html" class="btn btn-primary">Xem chi tiết</a></div></article>
+        <article class="news-card"><div class="news-image"><img src="assets/images/aerial_factory.png" alt="Nhà xưởng CCN Cổ Tiết"></div><div class="news-content"><span class="news-date">CCN Cổ Tiết</span><h3 class="news-title"><a href="nha-xuong-co-tiet.html">04 nhà xưởng 800 m² - 9.000 m²</a></h3><p class="news-excerpt">Khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết. Có TBA 110KV, XLNT, PCCC & CHCN, bãi xe, bảo vệ 24/7.</p><a href="nha-xuong-co-tiet.html" class="btn btn-primary">Xem chi tiết</a></div></article>
+    </div></div></section>
+    <section class="section bg-light"><div class="container"><div class="section-header text-center"><h2 class="section-title">Ưu tiên ngành nghề sạch</h2><p class="section-desc">Nhà xưởng phù hợp với may mặc, lắp ráp điện tử, cơ khí chính xác, đóng gói, chế biến thực phẩm và các ngành không gây ô nhiễm môi trường.</p></div><div class="project-highlights"><div class="highlight-item"><span class="material-symbols-outlined icon-check">checkroom</span><strong>May mặc</strong></div><div class="highlight-item"><span class="material-symbols-outlined icon-check">memory</span><strong>Điện tử</strong></div><div class="highlight-item"><span class="material-symbols-outlined icon-check">precision_manufacturing</span><strong>Cơ khí</strong></div><div class="highlight-item"><span class="material-symbols-outlined icon-check">inventory_2</span><strong>Đóng gói</strong></div><div class="highlight-item"><span class="material-symbols-outlined icon-check">restaurant</span><strong>Thực phẩm</strong></div></div></div></section>
+    <footer class="site-footer"><div class="container"><div class="footer-bottom" style="border:none; padding-top:0;"><p>&copy; 2026 THÉP SƠN LÂM Industrial Core.</p></div></div></footer><script src="script.js"></script>
 </body>
 </html>

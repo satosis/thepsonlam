@@ -5,11 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-        if (linkPath === currentPath) {
+        const isFactoryDetail = ['nha-xuong-trung-ha.html', 'nha-xuong-co-tiet.html'].includes(currentPath);
+        if (linkPath === currentPath || (isFactoryDetail && linkPath === 'projects.html')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
         }
+    });
+
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === currentPath);
     });
 
     // --- Sticky Header ---

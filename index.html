@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhà xưởng xây sẵn cho thuê - THÉP SƠN LÂM</title>
-    <meta name="description" content="Cho thuê nhà xưởng xây sẵn tại KCN Trung Hà và Cụm công nghiệp Cổ Tiết, Tỉnh Phú Thọ. Diện tích 4.032 m² & 2.730 m², trạm điện 5000 KVA, PCCC tự động, hạ tầng đồng bộ.">
+    <title>THÉP SƠN LÂM Industrial Core - Nhà xưởng xây sẵn cho thuê</title>
+    <meta name="description" content="Cho thuê nhà xưởng xây sẵn tại KCN Trung Hà và Cụm công nghiệp Cổ Tiết, tỉnh Phú Thọ. Diện tích 4.032 m², 2.730 m², 800 m², 4.500 m² và 9.000 m². Trạm điện 5000 KVA, PCCC tự động, hạ tầng đồng bộ.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="site-header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -22,18 +21,21 @@
             <nav class="main-nav">
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Trang chủ</a></li>
-                    <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
-                    <li><a href="projects.html" class="nav-link">Nhà xưởng</a></li>
+                    <li><a href="gioi-thieu.html" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item has-dropdown">
+    <a href="projects.html" class="nav-link">Nhà xưởng <span class="material-symbols-outlined dropdown-arrow">expand_more</span></a>
+    <ul class="dropdown-menu">
+        <li><a href="nha-xuong-trung-ha.html">Xưởng KCN Trung Hà</a></li>
+        <li><a href="nha-xuong-co-tiet.html">Xưởng CCN Cổ Tiết</a></li>
+    </ul>
+</li>
                     <li><a href="services.html" class="nav-link">Dịch vụ</a></li>
-                    <li><a href="news.html" class="nav-link">Tin tức</a></li>
+                    <li><a href="tin-tuc.html" class="nav-link">Tin tức</a></li>
+                    <li><a href="lien-he.html" class="nav-link">Liên hệ</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <div class="lang-selector">
-                    <span class="current-lang">VN</span>
-                    <span class="material-symbols-outlined">expand_more</span>
-                </div>
-                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Liên hệ ngay</button>
+                <button class="btn btn-primary" onclick="window.location.href='lien-he.html'">Liên hệ ngay</button>
             </div>
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                 <span class="material-symbols-outlined">menu</span>
@@ -41,177 +43,309 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg" style="background-image: url('assets/images/hero_factory.png');"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-text-content">
-                <h1 class="hero-title">Nhà xưởng xây sẵn <span class="highlight">cho thuê</span></h1>
-                <p class="hero-subtitle">Công nghiệp vươn xa - Hệ thống nhà xưởng cao cấp tại Phú Thọ</p>
+                <p class="subtitle text-accent">Industrial Core Excellence</p>
+                <h1 class="hero-title">Kết nối giá trị <span class="highlight">công nghiệp tương lai</span></h1>
+                <p class="hero-subtitle">Cung cấp giải pháp hạ tầng công nghiệp đột phá, giúp doanh nghiệp bứt phá trong kỷ nguyên sản xuất thông minh 4.0.</p>
                 <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary btn-lg">Khám phá giải pháp</a>
-                    <a href="contact.html" class="btn btn-outline btn-lg">Liên hệ ngay</a>
+                    <a href="projects.html" class="btn btn-primary btn-lg">Khám phá dự án</a>
+                    <a href="lien-he.html" class="btn btn-outline btn-lg">Hẹn xem xưởng</a>
                 </div>
             </div>
             <div class="hero-stats">
                 <div class="stat-card glass-panel">
-                    <span class="stat-value">5000</span>
-                    <span class="stat-unit">KVA</span>
-                    <span class="stat-label">Trạm biến áp</span>
+                    <span class="stat-value">1M+</span>
+                    <span class="stat-label">m² quỹ đất công nghiệp</span>
                 </div>
                 <div class="stat-card glass-panel">
-                    <span class="stat-value">2</span>
-                    <span class="stat-unit">Nhà xưởng</span>
-                    <span class="stat-label">Sẵn sàng bàn giao</span>
+                    <span class="stat-value">50+</span>
+                    <span class="stat-label">Đối tác FDI quốc tế</span>
+                </div>
+                <div class="stat-card glass-panel">
+                    <span class="stat-value">15+</span>
+                    <span class="stat-label">Tỉnh trong mạng lưới hạ tầng</span>
+                </div>
+                <div class="stat-card glass-panel">
+                    <span class="stat-value">5000</span>
+                    <span class="stat-unit">KVA</span>
+                    <span class="stat-label">Trạm điện</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Slider Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h4 class="subtitle text-primary">Ecosystem</h4>
+                <h2 class="section-title">Giải pháp hạ tầng toàn diện & đột phá</h2>
+                <p class="section-desc">Chúng tôi không chỉ cung cấp diện tích mặt bằng, mà còn cung cấp một hệ sinh thái hỗ trợ doanh nghiệp từ khâu khởi đầu đến lúc vận hành sản xuất ổn định.</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="material-symbols-outlined icon-check">warehouse</span>
+                        <h3 class="news-title">Xưởng KCN Trung Hà</h3>
+                        <p class="news-excerpt">02 nhà xưởng xây sẵn tại Lô E5, KCN Trung Hà. Tiêu chuẩn quốc tế, cao 10.85m, tải trọng 3 tấn/m². Diện tích 4.032 m² và 2.730 m², sẵn sàng bàn giao ngay.</p>
+                        <a href="nha-xuong-trung-ha.html" class="btn btn-outline">Xem chi tiết</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="material-symbols-outlined icon-check">factory</span>
+                        <h3 class="news-title">Xưởng CCN Cổ Tiết</h3>
+                        <p class="news-excerpt">04 nhà xưởng tại khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết. Diện tích 800 m², 4.500 m² và 02 xưởng 9.000 m². Có PCCC, XLNT, TBA 110KV.</p>
+                        <a href="nha-xuong-co-tiet.html" class="btn btn-outline">Xem chi tiết</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="material-symbols-outlined icon-check">settings_input_component</span>
+                        <h3 class="news-title">Hạ tầng & tiện ích</h3>
+                        <p class="news-excerpt">Hệ thống hỗ trợ toàn diện: trạm điện 5000 KVA, xử lý nước thải tiêu chuẩn, PCCC tự động, bể ngầm, nhà bảo vệ, nhà để xe và khu văn phòng.</p>
+                        <a href="services.html" class="btn btn-outline">Xem dịch vụ</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section class="section premium-slider-section bg-dark" id="premium-projects">
         <div class="container">
             <div class="slider-header">
                 <div class="slider-title-wrapper">
-                    <span class="highlight-badge text-primary text-sm fw-black mb-2 block uppercase tracking-wider">Featured Assets</span>
-                    <h2 class="section-title text-white m-0">Dự án trọng điểm</h2>
+                    <span class="highlight-badge">Featured Assets</span>
+                    <h2 class="section-title text-white">Dự án trọng điểm</h2>
                 </div>
                 <div class="slider-controls">
-                    <button id="slider-prev" class="slider-btn shadow-lg" aria-label="Previous">
+                    <button id="slider-prev" class="slider-btn" aria-label="Previous">
                         <span class="material-symbols-outlined">west</span>
                     </button>
-                    <button id="slider-next" class="slider-btn shadow-lg" aria-label="Next">
+                    <button id="slider-next" class="slider-btn" aria-label="Next">
                         <span class="material-symbols-outlined">east</span>
                     </button>
                 </div>
             </div>
-
-            <div class="premium-slider-container shadow-2xl" id="projects-slider">
-                <!-- JS will inject slider items here -->
-            </div>
+            <div class="premium-slider-container" id="projects-slider"></div>
         </div>
     </section>
 
-    <!-- Services Overview Section -->
-    <section class="section about">
+    <section class="section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h4 class="subtitle text-primary">Dịch vụ & Ưu điểm</h4>
-                    <h2 class="section-title">Tại sao chọn THÉP SƠN LÂM?</h2>
-                    <p class="about-desc">Chúng tôi không chỉ cung cấp không gian sản xuất, mà còn mang đến hệ sinh thái công nghiệp hoàn chỉnh giúp doanh nghiệp của bạn phát triển bền vững.</p>
-                    
-                    <div class="feature-list" style="margin-top: 2rem;">
-                        <div class="highlight-item">
-                            <span class="material-symbols-outlined icon-check" style="font-size: 32px;">bolt</span>
-                            <div>
-                                <strong>Hạ tầng đồng bộ</strong>
-                                <p class="text-muted">Trạm điện 5000 KVA, PCCC chuẩn Bộ Công An.</p>
+                    <h4 class="subtitle text-primary">Về THÉP SƠN LÂM</h4>
+                    <h2 class="section-title">Đối tác hạ tầng công nghiệp tại Phú Thọ</h2>
+                    <p class="about-desc">THÉP SƠN LÂM sở hữu quỹ đất lớn tại các tỉnh thành có tốc độ phát triển công nghiệp nhanh nhất Việt Nam, đảm bảo khả năng kết nối đa phương thức.</p>
+                    <p class="about-desc">Với hơn 10 năm kinh nghiệm trong lĩnh vực phát triển khu công nghiệp và cho thuê nhà xưởng, THÉP SƠN LÂM cam kết mang đến giải pháp tối ưu nhất cho doanh nghiệp.</p>
+                    <div class="location-distances">
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">verified</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Pháp lý</span>
+                                <span class="distance-value">Giấy chứng nhận đầu tư và quyền sử dụng đất đầy đủ.</span>
                             </div>
                         </div>
-                        <div class="highlight-item" style="margin-top: 1rem;">
-                            <span class="material-symbols-outlined icon-check" style="font-size: 32px;">verified</span>
-                            <div>
-                                <strong>Tiêu chuẩn quốc tế</strong>
-                                <p class="text-muted">Hệ thống quản lý chuyên nghiệp, đạt chuẩn vận hành ISO 9001.</p>
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">speed</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Phản hồi</span>
+                                <span class="distance-value">Tư vấn miễn phí và báo giá trong ngày làm việc.</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <a href="services.html" class="btn btn-outline">Tìm hiểu tất cả dịch vụ</a>
+                        <div class="distance-item">
+                            <div class="distance-icon"><span class="material-symbols-outlined">calendar_month</span></div>
+                            <div class="distance-info">
+                                <span class="distance-label">Thời hạn</span>
+                                <span class="distance-value">Thời hạn sử dụng đất còn hơn 45 năm.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-image">
                     <div class="img-wrapper shadow-lg">
-                        <img src="assets/images/aerial_factory.png" alt="Toàn cảnh" class="lightbox-trigger">
+                        <img src="assets/images/aerial_factory.png" alt="Khu công nghiệp và nhà xưởng THÉP SƠN LÂM" class="lightbox-trigger">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-card glass-card">
                 <div class="cta-content">
-                    <h2 class="cta-title">Sẵn sàng khởi đầu cơ sở sản xuất mới?</h2>
-                    <p class="cta-desc">Liên hệ với đội ngũ chuyên gia của chúng tôi để nhận báo giá chi tiết và tư vấn giải pháp nhà xưởng tối ưu nhất.</p>
+                    <h2 class="cta-title">Hệ thống nhà xưởng tại Phú Thọ</h2>
+                    <p class="cta-desc">Dự án KCN Trung Hà và CCN Cổ Tiết, tỉnh Phú Thọ. Các nhà xưởng tiêu chuẩn 4.032 m², 2.730 m², 800 m², 4.500 m² và 9.000 m². Trang bị đồng bộ: trạm điện 5000 KVA, hệ thống xử lý nước thải, PCCC tự động và bể ngầm.</p>
                 </div>
                 <div class="cta-action">
-                    <a href="contact.html" class="btn btn-primary btn-lg btn-glow">
-                        <span class="material-symbols-outlined">call</span>
-                        Liên hệ tư vấn
+                    <a href="projects.html" class="btn btn-primary btn-lg btn-glow">
+                        <span class="material-symbols-outlined">warehouse</span>
+                        Xem nhà xưởng
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h4 class="subtitle text-primary">Strategic Reach</h4>
+                    <h2 class="section-title">Vị trí đắc địa tại các vùng kinh tế trọng điểm</h2>
+                    <p class="about-desc">THÉP SƠN LÂM sở hữu quỹ đất lớn tại các tỉnh thành có tốc độ phát triển công nghiệp nhanh nhất Việt Nam, đảm bảo khả năng kết nối đa phương thức.</p>
+                    <div class="location-distances">
+                        <div class="distance-item">
+                            <div class="distance-icon">01</div>
+                            <div class="distance-info">
+                                <span class="distance-label">Vùng kinh tế trọng điểm phía Bắc</span>
+                                <span class="distance-value">Hà Nội, Hải Phòng, Bắc Ninh, Phú Thọ, Hải Dương.</span>
+                            </div>
+                        </div>
+                        <div class="distance-item">
+                            <div class="distance-icon">02</div>
+                            <div class="distance-info">
+                                <span class="distance-label">Vùng kinh tế trọng điểm phía Nam</span>
+                                <span class="distance-value">TP. Hồ Chí Minh, Bình Dương, Đồng Nai, Long An.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="img-wrapper shadow-lg">
+                        <img src="assets/images/interior_factory.png" alt="Hạ tầng nhà xưởng THÉP SƠN LÂM" class="lightbox-trigger">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h4 class="subtitle text-primary">Quy trình</h4>
+                <h2 class="section-title">4 bước để sở hữu mặt bằng sản xuất</h2>
+                <p class="section-desc">Quy trình thuê nhà xưởng đơn giản, nhanh chóng - từ liên hệ đến bàn giao trong khoảng 2 tuần.</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card"><div class="news-content"><span class="news-date">01</span><h3 class="news-title">Liên hệ tư vấn</h3><p class="news-excerpt">Gọi hotline hoặc gửi form, đội ngũ tư vấn sẽ phản hồi trong 24h với đầy đủ thông tin dự án.</p></div></article>
+                <article class="news-card"><div class="news-content"><span class="news-date">02</span><h3 class="news-title">Khảo sát thực tế</h3><p class="news-excerpt">Hẹn lịch tham quan nhà xưởng trực tiếp, đánh giá hạ tầng điện nước, PCCC và giao thông.</p></div></article>
+                <article class="news-card"><div class="news-content"><span class="news-date">03</span><h3 class="news-title">Thương thảo hợp đồng</h3><p class="news-excerpt">Đàm phán giá thuê, thời hạn và các điều khoản ưu đãi. Hỗ trợ pháp lý trọn gói.</p></div></article>
+                <article class="news-card"><div class="news-content"><span class="news-date">04</span><h3 class="news-title">Bàn giao & vận hành</h3><p class="news-excerpt">Ký hợp đồng và bàn giao nhà xưởng. Hỗ trợ kỹ thuật 24/7 trong suốt thời gian thuê.</p></div></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h4 class="subtitle text-primary">Ngành nghề phù hợp</h4>
+                <h2 class="section-title">Phục vụ đa dạng lĩnh vực sản xuất</h2>
+                <p class="section-desc">Nhà xưởng được thiết kế phù hợp cho nhiều ngành công nghiệp sạch, đáp ứng tiêu chuẩn quốc tế.</p>
+            </div>
+            <div class="project-highlights">
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">checkroom</span><strong>May mặc</strong></div>
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">memory</span><strong>Điện tử</strong></div>
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">precision_manufacturing</span><strong>Cơ khí</strong></div>
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">inventory_2</span><strong>Đóng gói</strong></div>
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">local_pharmacy</span><strong>Dược phẩm</strong></div>
+                <div class="highlight-item"><span class="material-symbols-outlined icon-check">restaurant</span><strong>Thực phẩm</strong></div>
+            </div>
+            <div class="contact-info-item">
+                <div class="contact-icon"><span class="material-symbols-outlined">info</span></div>
+                <div class="contact-details">
+                    <h3>Lưu ý</h3>
+                    <p>Nhà xưởng tại khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết, tỉnh Phú Thọ không cho thuê đối với các ngành nghề gây ô nhiễm môi trường như hóa chất độc hại, nhuộm, thuộc da.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h4 class="subtitle text-primary">Market Insights</h4>
+                <h2 class="section-title">Tin tức & báo cáo</h2>
+                <p class="section-desc">Cập nhật thông tin dự án, thị trường và xu hướng nhà xưởng xây sẵn tại Việt Nam.</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image"><img src="assets/images/interior_factory.png" alt="Hoàn thiện hệ thống PCCC tự động"></div>
+                    <div class="news-content"><span class="news-date">Dự án • 2026-05-02</span><h3 class="news-title">Hoàn thiện PCCC tự động Cổ Tiết</h3></div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image"><img src="assets/images/hero_factory.png" alt="Khai trương KCN Trung Hà"></div>
+                    <div class="news-content"><span class="news-date">Tin tức • 2026-05-01</span><h3 class="news-title">Khai trương KCN Trung Hà</h3></div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image"><img src="assets/images/aerial_factory.png" alt="Xu hướng nhà xưởng xây sẵn thông minh"></div>
+                    <div class="news-content"><span class="news-date">Thị trường • 2026-04-29</span><h3 class="news-title">Xu hướng nhà xưởng xây sẵn thông minh tại Việt Nam năm 2026</h3></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="lien-he">
+        <div class="container">
+            <div class="section-header text-center">
+                <h4 class="subtitle text-primary">Hình ảnh nhà xưởng</h4>
+                <h2 class="section-title">Thư viện hiện trường</h2>
+                <p class="section-desc">Một vài hình ảnh thực tế từ nhà xưởng — click để phóng to.</p>
+            </div>
+            <div class="warehouse-gallery grid-3">
+                <img src="assets/images/warehouse-1.jpg" alt="Nhà xưởng 1" class="lightbox-trigger gallery-img">
+                <img src="assets/images/warehouse-2.jpg" alt="Nhà xưởng 2" class="lightbox-trigger gallery-img">
+                <img src="assets/images/warehouse-3.jpg" alt="Nhà xưởng 3" class="lightbox-trigger gallery-img">
+                <img src="assets/images/warehouse-4.jpg" alt="Nhà xưởng 4" class="lightbox-trigger gallery-img">
+                <img src="assets/images/warehouse-5.jpg" alt="Nhà xưởng 5" class="lightbox-trigger gallery-img">
+                <img src="assets/images/warehouse-6.jpg" alt="Nhà xưởng 6" class="lightbox-trigger gallery-img">
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-wrapper">
+                    <h2 class="section-title">Sẵn sàng đưa doanh nghiệp của bạn vươn xa?</h2>
+                    <p class="section-desc">Để lại thông tin, đội ngũ chuyên gia sẽ liên hệ tư vấn giải pháp hạ tầng tối ưu nhất trong vòng 24h.</p>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item"><div class="contact-icon"><span class="material-symbols-outlined">mail</span></div><div class="contact-details"><h3>Email</h3><p>contact@thepsonlam.com</p></div></div>
+                        <div class="contact-info-item"><div class="contact-icon"><span class="material-symbols-outlined">support_agent</span></div><div class="contact-details"><h3>Hotline 24/7</h3><p>+84 986 565 666</p></div></div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form action="#" method="POST">
+                        <div class="form-group"><label class="form-label" for="full-name">Họ và tên *</label><input type="text" id="full-name" class="form-control" placeholder="Nguyễn Văn A" required></div>
+                        <div class="form-group"><label class="form-label" for="phone">Số điện thoại *</label><input type="tel" id="phone" class="form-control" placeholder="090 123 4567" required></div>
+                        <div class="form-group"><label class="form-label" for="company">Tên doanh nghiệp</label><input type="text" id="company" class="form-control" placeholder="Công ty TNHH THÉP SƠN LÂM"></div>
+                        <div class="form-group"><label class="form-label" for="demand">Nhu cầu tư vấn</label><select id="demand" class="form-control"><option>Cho thuê nhà xưởng xây sẵn</option><option>Tư vấn đầu tư FDI</option><option>Thuê kho bãi logistics</option><option>Khác</option></select></div>
+                        <button type="submit" class="btn btn-primary btn-lg">Gửi yêu cầu tư vấn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col brand-col">
-                    <a href="index.html" class="logo footer-logo">
-                        <span class="logo-text text-white">THÉP SƠN LÂM</span>
-                        <span class="logo-sub text-gray">Industrial Core</span>
-                    </a>
-                    <p class="footer-desc">CÔNG TY TNHH TMDV SƠN LÂM — Cung cấp giải pháp nhà xưởng xây sẵn chất lượng cao tại Việt Nam.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><span class="material-symbols-outlined">language</span></a>
-                        <a href="mailto:contact@thepsonlam.vn" aria-label="Email"><span class="material-symbols-outlined">mail</span></a>
-                    </div>
+                    <a href="index.html" class="logo footer-logo"><span class="logo-text text-white">THÉP SƠN LÂM</span><span class="logo-sub text-gray">Industrial Core</span></a>
+                    <p class="footer-desc">Khu công nghiệp & nhà xưởng xây sẵn tại Phú Thọ - sẵn sàng cho sản xuất ngay từ ngày đầu.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Khám phá</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Trang chủ</a></li>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="projects.html">Nhà xưởng</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Thông tin</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Dịch vụ</a></li>
-                        <li><a href="news.html">Tin tức & Sự kiện</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Liên hệ</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <span class="material-symbols-outlined">location_on</span>
-                            <span>Khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết, Huyện Tam Nông, Tỉnh Phú Thọ</span>
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">call</span>
-                            <span>+84 986 565 666</span>
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">mail</span>
-                            <span>contact@thepsonlam.vn</span>
-                        </li>
-                    </ul>
-                </div>
+                <div class="footer-col"><h4 class="footer-title">Dịch vụ</h4><ul class="footer-links"><li><a href="nha-xuong-trung-ha.html">Xưởng KCN Trung Hà</a></li><li><a href="nha-xuong-co-tiet.html">Xưởng CCN Cổ Tiết</a></li><li><a href="services.html">Hạ tầng KCN</a></li></ul></div>
+                <div class="footer-col"><h4 class="footer-title">Công ty</h4><ul class="footer-links"><li><a href="gioi-thieu.html">Giới thiệu</a></li><li><a href="tin-tuc.html">Tin tức</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+                <div class="footer-col"><h4 class="footer-title">Liên hệ</h4><ul class="contact-info"><li><span class="material-symbols-outlined">location_on</span><span>Khu Đồng Dâu, xã Vạn Xuân, Cụm công nghiệp Cổ Tiết, tỉnh Phú Thọ</span></li><li><span class="material-symbols-outlined">call</span><span>0986 565 666</span></li><li><span class="material-symbols-outlined">schedule</span><span>T2 - T7 · 8:00 - 17:30</span></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 THÉP SƠN LÂM Industrial Core. Đã đăng ký Bản quyền.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 THÉP SƠN LÂM Industrial Core. Bảo lưu mọi quyền.</p></div>
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed Image">
     </div>
-
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
