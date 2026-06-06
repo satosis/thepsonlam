@@ -34,13 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (mobileMenuToggle && mainNav) {
         mobileMenuToggle.addEventListener('click', () => {
-            mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+            const isOpen = mainNav.classList.toggle('is-open');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            });
         });
         
         // Reset mobile menu on resize
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 992) {
-                mainNav.style.display = '';
+                mainNav.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }

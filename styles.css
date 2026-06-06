@@ -313,6 +313,10 @@ ul {
     display: none;
 }
 
+.main-nav.is-open {
+    display: block;
+}
+
 @media (min-width: 992px) {
     .main-nav {
         display: block;
@@ -454,11 +458,110 @@ ul {
     cursor: pointer;
     color: var(--c-primary);
     display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+    background-color: var(--c-bg-light);
+    outline: none;
 }
 
 @media (min-width: 992px) {
     .mobile-menu-toggle {
         display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .site-header {
+        height: 72px;
+    }
+
+    .header-container {
+        position: relative;
+    }
+
+    .logo-text {
+        font-size: 1.05rem;
+    }
+
+    .logo-sub {
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: var(--space-sm);
+        right: var(--space-sm);
+        padding: 0.75rem;
+        background-color: #ffffff;
+        border: 1px solid var(--c-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        max-height: calc(100vh - 88px);
+        overflow-y: auto;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        height: auto;
+        min-height: 44px;
+        padding: 0.75rem;
+        border-radius: var(--radius-sm);
+        justify-content: space-between;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background-color: var(--c-bg-light);
+        color: var(--c-accent);
+    }
+
+    .dropdown-arrow {
+        transform: rotate(0);
+    }
+
+    .has-dropdown:hover .dropdown-arrow,
+    .has-dropdown:focus-within .dropdown-arrow {
+        transform: none;
+    }
+
+    .dropdown-menu {
+        position: static;
+        min-width: 0;
+        margin: 0 0 0.25rem 0.75rem;
+        padding: 0 0 0 0.75rem;
+        border: 0;
+        border-left: 2px solid var(--c-border);
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: transparent;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-menu a {
+        padding: 0.625rem 0.75rem;
+        white-space: normal;
     }
 }
 
