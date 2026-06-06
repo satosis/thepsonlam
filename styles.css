@@ -601,13 +601,13 @@ ul {
 .project-image-wrapper {
     position: relative;
     overflow: hidden;
+    aspect-ratio: 4 / 3;
 }
 
 .project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    min-height: 400px;
     transition: transform 0.5s ease;
 }
 
@@ -826,11 +826,11 @@ ul {
 }
 
 .tab-image img {
+    width: 100%;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     object-fit: cover;
-    height: 100%;
-    min-height: 300px;
+    height: clamp(240px, 30vw, 360px);
 }
 
 /* ==========================================================================
@@ -914,6 +914,15 @@ ul {
 .about-image .img-wrapper {
     border-radius: var(--radius-lg);
     overflow: hidden;
+    max-width: 560px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+}
+
+.about-image .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ==========================================================================
@@ -951,7 +960,7 @@ ul {
 }
 
 .news-image {
-    height: 200px;
+    height: clamp(160px, 18vw, 210px);
     overflow: hidden;
 }
 
@@ -999,6 +1008,110 @@ ul {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* ==========================================================================
+   Warehouse Gallery Slider
+   ========================================================================== */
+.warehouse-gallery {
+    max-width: 880px;
+    margin: 0 auto var(--space-xl);
+}
+
+.warehouse-slider-track {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--c-bg-dark);
+    box-shadow: var(--shadow-lg);
+}
+
+.warehouse-slide {
+    display: none;
+    animation: fadeIn 0.45s ease;
+}
+
+.warehouse-slide.active {
+    display: block;
+}
+
+.warehouse-slide .gallery-img {
+    width: 100%;
+    height: clamp(220px, 36vw, 420px);
+    object-fit: cover;
+}
+
+.warehouse-slider-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    background: rgba(11, 28, 48, 0.65);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: var(--transition);
+}
+
+.warehouse-slider-btn:hover,
+.warehouse-slider-btn:focus {
+    background: var(--c-accent);
+    border-color: var(--c-accent);
+    outline: none;
+}
+
+.warehouse-slider-prev {
+    left: 1rem;
+}
+
+.warehouse-slider-next {
+    right: 1rem;
+}
+
+.warehouse-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+    margin-top: 1rem;
+}
+
+.warehouse-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 0;
+    border-radius: var(--radius-full);
+    background-color: var(--c-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.warehouse-dot.active,
+.warehouse-dot:hover,
+.warehouse-dot:focus {
+    width: 2rem;
+    background-color: var(--c-accent);
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    .warehouse-gallery {
+        margin-bottom: var(--space-lg);
+    }
+
+    .warehouse-slide .gallery-img {
+        height: 240px;
+    }
+
+    .warehouse-slider-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -1095,7 +1208,7 @@ textarea.form-control {
    ========================================================================== */
 .cta-section {
     padding: var(--space-xl) 0;
-    background-image: url('assets/images/interior_factory.png');
+    background-image: url('assets/images/z7785901889175_7c9d549d0be200ce538456d0451a61cd.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1296,7 +1409,7 @@ textarea.form-control {
    Premium Projects Slider
    ========================================================================== */
 .premium-slider-section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
     overflow: hidden;
 }
 
@@ -1341,17 +1454,19 @@ textarea.form-control {
 
 .premium-slider-container {
     position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
     background-color: rgba(11, 28, 48, 0.95);
-    border-radius: 2rem;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    min-height: 550px;
+    min-height: 360px;
 }
 
 .slider-item {
     display: none;
     flex-direction: column;
-    min-height: 550px;
+    min-height: 360px;
     animation: fadeInScale 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1373,12 +1488,12 @@ textarea.form-control {
 .slider-image-col {
     position: relative;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 220px;
 }
 
 @media (min-width: 992px) {
     .slider-image-col {
-        width: 60%;
+        width: 52%;
         min-height: auto;
     }
 }
@@ -1432,7 +1547,7 @@ textarea.form-control {
 }
 
 .slider-info-col {
-    padding: 3rem;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1440,14 +1555,38 @@ textarea.form-control {
 
 @media (min-width: 992px) {
     .slider-info-col {
-        width: 40%;
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .premium-slider-container,
+    .slider-item {
+        min-height: auto;
+    }
+
+    .slider-image-col {
+        min-height: 220px;
+        max-height: 260px;
+    }
+
+    .slider-info-col {
+        padding: 1.25rem;
+    }
+
+    .info-title {
+        font-size: 1.35rem;
+    }
+
+    .specs-grid {
+        gap: 1rem;
     }
 }
 
 .info-title {
-    font-size: 2rem;
+    font-size: 1.65rem;
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -1455,13 +1594,13 @@ textarea.form-control {
 .info-desc {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.875rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
 }
 
 .spec-item {
@@ -1479,7 +1618,7 @@ textarea.form-control {
 }
 
 .spec-value {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: #ffffff;
     font-weight: 800;
 }
@@ -1487,7 +1626,7 @@ textarea.form-control {
 .info-actions {
     display: flex;
     gap: 1rem;
-    margin-top: 3rem;
+    margin-top: 1.75rem;
 }
 
 .btn-full {

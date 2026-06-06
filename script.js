@@ -107,6 +107,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Warehouse Gallery Slider ---
+    const warehouseGallery = document.getElementById('warehouse-gallery');
+    const warehouseSlides = document.querySelectorAll('.warehouse-slide');
+    const warehouseDots = document.querySelectorAll('.warehouse-dot');
+    const warehousePrev = document.getElementById('warehouse-slider-prev');
+    const warehouseNext = document.getElementById('warehouse-slider-next');
+
+    if (warehouseGallery && warehouseSlides.length > 0 && warehouseDots.length > 0 && warehousePrev && warehouseNext) {
+        let warehouseActiveIndex = 0;
+        let galleryTimer;
+
+        const showWarehouseSlide = (index) => {
+            warehouseActiveIndex = (index + warehouseSlides.length) % warehouseSlides.length;
+
+            warehouseSlides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('active', slideIndex === warehouseActiveIndex);
+            });
+
+            warehouseDots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === warehouseActiveIndex);
+                dot.setAttribute('aria-current', dotIndex === warehouseActiveIndex ? 'true' : 'false');
+            });
+        };
+
+        const nextWarehouseSlide = () => showWarehouseSlide(warehouseActiveIndex + 1);
+        const prevWarehouseSlide = () => showWarehouseSlide(warehouseActiveIndex - 1);
+        const startGalleryTimer = () => {
+            galleryTimer = window.setInterval(nextWarehouseSlide, 10000);
+        };
+        const stopGalleryTimer = () => {
+            window.clearInterval(galleryTimer);
+        };
+
+        warehouseNext.addEventListener('click', () => {
+            stopGalleryTimer();
+            nextWarehouseSlide();
+            startGalleryTimer();
+        });
+
+        warehousePrev.addEventListener('click', () => {
+            stopGalleryTimer();
+            prevWarehouseSlide();
+            startGalleryTimer();
+        });
+
+        warehouseDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopGalleryTimer();
+                showWarehouseSlide(index);
+                startGalleryTimer();
+            });
+        });
+
+        warehouseGallery.addEventListener('mouseenter', stopGalleryTimer);
+        warehouseGallery.addEventListener('mouseleave', startGalleryTimer);
+        warehouseGallery.addEventListener('focusin', stopGalleryTimer);
+        warehouseGallery.addEventListener('focusout', startGalleryTimer);
+
+        showWarehouseSlide(0);
+        startGalleryTimer();
+    }
+
     // --- Premium Projects Slider ---
     const projectsSlider = document.getElementById('projects-slider');
     const sliderPrev = document.getElementById('slider-prev');
@@ -114,21 +176,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (projectsSlider && sliderPrev && sliderNext) {
         const projectsData = [
-            { "area": "4.032 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "height": "10.85m", "id": 1, "load": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 1 - Trung Hà" },
-            { "area": "2.730 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. Tiêu chuẩn cao cấp.", "height": "10.85m", "id": 2, "load": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng 2 - Trung Hà" },
-            { "area": "800 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Tiêu chuẩn công nghiệp.", "height": "8m", "id": 3, "load": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 1 - Cổ Tiết" },
-            { "area": "4.500 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Hệ thống đồng bộ.", "height": "8m", "id": 4, "load": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 2 - Cổ Tiết" },
-            { "area": "9.000 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Quy mô lớn.", "height": "8m", "id": 5, "load": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 3 - Cổ Tiết" },
-            { "area": "9.000 m²", "bays": "-", "description": "Cụm công nghiệp Cổ Tiết. Tiêu chuẩn cao cấp.", "height": "8m", "id": 6, "load": "-", "location": "CCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng 4 - Cổ Tiết" }
+            { "area": "4.032 m² & 2.730 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "detailUrl": "nha-xuong-trung-ha.html", "height": "10.85m", "id": 1, "load": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng KCN Trung Hà" },
+            { "area": "Theo hiện trạng", "bays": "-", "description": "KCN Cổ Tiết. Hạ tầng đồng bộ, phù hợp ngành sản xuất sạch.", "detailUrl": "nha-xuong-co-tiet.html", "height": "8m", "id": 2, "load": "5 Tấn/m²", "location": "KCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng KCN Cổ Tiết" }
         ];
 
         let activeIndex = 0;
-        const imgPaths = ['assets/images/hero_factory.png', 'assets/images/interior_factory.png', 'assets/images/aerial_factory.png'];
+        const imgPaths = [
+            'assets/images/z7785901913433_5861751b5076d731ec691d57c3774813.jpg',
+            'assets/images/z7785901904159_b3eaa8c1fc4112d0cbdd14efe704529d.jpg'
+        ];
 
         const renderSlider = () => {
             projectsSlider.innerHTML = projectsData.map((project, index) => {
                 const isActive = index === activeIndex ? 'active' : '';
-                const localImage = imgPaths[index % 3];
+                const localImage = imgPaths[index % imgPaths.length];
 
                 return `
                 <div class="slider-item ${isActive}">
@@ -167,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <a href="contact.html" class="btn btn-primary btn-full flex-center gap-2">
                                 <span class="material-symbols-outlined">call</span> Liên hệ ngay
                             </a>
-                            <a href="projects.html" class="btn btn-outline icon-btn flex-center">
+                            <a href="${project.detailUrl}" class="btn btn-outline icon-btn flex-center" aria-label="Xem chi tiết ${project.name}">
                                 <span class="material-symbols-outlined">info</span>
                             </a>
                         </div>
