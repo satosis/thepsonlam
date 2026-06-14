@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xuongsonlam.com/sitemap.xml
+Sitemap: https://xuongsonlam.com/xecau/sitemap.xml

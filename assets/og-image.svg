@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="THÉP SƠN LÂM Industrial Core - Cho thuê nhà xưởng KCN Trung Hà & CCN Cổ Tiết, Phú Thọ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1c30"/>
+      <stop offset="1" stop-color="#00332c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#fd761a"/>
+  <text x="80" y="170" font-family="'Outfit','Segoe UI',sans-serif" font-size="62" font-weight="800" fill="#ffffff">THÉP SƠN LÂM</text>
+  <text x="80" y="222" font-family="'Inter','Segoe UI',sans-serif" font-size="26" font-weight="600" letter-spacing="5" fill="#fd761a">INDUSTRIAL CORE</text>
+  <text x="80" y="340" font-family="'Outfit','Segoe UI',sans-serif" font-size="50" font-weight="700" fill="#ffffff">Cho thuê nhà xưởng xây sẵn</text>
+  <text x="80" y="406" font-family="'Outfit','Segoe UI',sans-serif" font-size="50" font-weight="700" fill="#ffffff">KCN Trung Hà &amp; CCN Cổ Tiết</text>
+  <text x="80" y="498" font-family="'Inter','Segoe UI',sans-serif" font-size="32" font-weight="500" fill="#9fd8cd">Phú Thọ · Trạm điện 5000 KVA · PCCC · Hotline 0986 565 666</text>
+</svg>

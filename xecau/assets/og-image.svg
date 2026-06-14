@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Đại Lộ Xanh - Lái xe tải thuê & cho thuê quả cân kiểm định Vĩnh Phúc">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00332c"/>
+      <stop offset="1" stop-color="#004b41"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#fd761a"/>
+  <text x="80" y="170" font-family="'Outfit','Segoe UI',sans-serif" font-size="64" font-weight="800" fill="#ffffff">ĐẠI LỘ XANH</text>
+  <text x="80" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="28" font-weight="600" letter-spacing="4" fill="#fd761a">VẬN TẢI · KIỂM ĐỊNH CÂN</text>
+  <text x="80" y="340" font-family="'Outfit','Segoe UI',sans-serif" font-size="54" font-weight="700" fill="#ffffff">Lái xe tải thuê &amp; cho thuê quả cân</text>
+  <text x="80" y="410" font-family="'Outfit','Segoe UI',sans-serif" font-size="54" font-weight="700" fill="#ffffff">kiểm định cân điện tử</text>
+  <text x="80" y="500" font-family="'Inter','Segoe UI',sans-serif" font-size="34" font-weight="500" fill="#9fd8cd">Vĩnh Phúc và các tỉnh lân cận · Hotline 0912 559 868</text>
+</svg>
