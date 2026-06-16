@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cho Thuê Nhà Xưởng Xây Sẵn - THÉP SƠN LÂM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .color-magenta {
+            color: #b61e5b;
+        }
+        
+        /* Header */
+        .top-header {
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+        .top-header .logo-text {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0b1c30;
+            line-height: 1;
+            display: block;
+        }
+        .top-header .logo-sub {
+            font-size: 14px;
+            color: #b61e5b;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Titles */
+        .main-title {
+            font-size: 38px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+        .sub-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* Hero */
+        .hero-section {
+            position: relative;
+            margin-bottom: 70px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 650px;
+            object-fit: cover;
+        }
+        .btn-red-pill {
+            background-color: #e31e24;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: uppercase;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(227, 30, 36, 0.4);
+            position: absolute;
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        .btn-red-pill:hover {
+            background-color: #c9171c;
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        /* Section 1 - Intro */
+        .intro-section {
+            text-align: center;
+            padding: 20px 0 60px;
+        }
+        .intro-title {
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .intro-desc {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .btn-magenta {
+            background-color: #b61e5b;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-magenta:hover {
+            background-color: #9c194e;
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 60px 0;
+            background: #fafafa;
+        }
+        .location-section:nth-child(even) {
+            background: #fff;
+        }
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .loc-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #b61e5b;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .loc-sub {
+            font-size: 20px;
+            font-weight: 600;
+            color: #b61e5b;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .loc-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        .loc-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #444;
+        }
+        .loc-list li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #333;
+            font-size: 12px;
+            transform: rotate(-45deg); /* Để icon giống hình mũi tên giấy */
+        }
+        .loc-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-red {
+            background-color: #e31e24;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-red:hover { background-color: #c9171c; }
+        
+        .btn-green {
+            background-color: #008037;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-green:hover { background-color: #006b2e; }
+        
+        .map-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+        }
+
+        /* Features/Offers Section */
+        .offers-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .offers-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #b61e5b;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+        .offers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .offer-box {
+            position: relative;
+            background: #b61e5b;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .offer-box img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .offer-box-content {
+            background-color: #b61e5b;
+            color: #fff;
+            padding: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* Floating buttons */
+        .floating-zalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            background: #0068ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .floating-phone {
+            position: fixed;
+            bottom: 85px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            background: #34c759;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .floating-phone svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-title { font-size: 28px; }
+            .btn-red-pill { font-size: 16px; padding: 14px 35px; bottom: -24px;}
+            .offer-box img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Titles -->
+    <header class="top-header">
+        <span class="logo-text">THÉP SƠN LÂM</span>
+        <span class="logo-sub">Industrial Core</span>
+    </header>
+
+    <div class="text-center">
+        <h1 class="main-title color-magenta">CHO THUÊ NHÀ XƯỞNG XÂY SẴN</h1>
+        <p class="sub-title color-magenta">Phú Thọ | KCN Trung Hà | KCN Cổ Tiết</p>
+    </div>
+
+    <!-- Hero Image -->
+    <section class="hero-section">
+        <img src="assets/images/hero_factory.png" alt="Nhà xưởng Sơn Lâm" class="hero-image">
+        <a href="#nhan-tu-van" class="btn-red-pill">NHẬN BÁO GIÁ CHI TIẾT</a>
+    </section>
+
+    <!-- Intro Text 1 -->
+    <section class="intro-section" id="nhan-tu-van">
+        <div class="container">
+            <h2 class="intro-title color-magenta">KCN TRUNG HÀ - PHÚ THỌ</h2>
+            <p class="intro-desc color-magenta">Nút giao kết nối vàng - Sẵn sàng đi vào sản xuất</p>
+            <a href="#" class="btn-magenta">VẬN HÀNH NGAY - KHÔNG CẦN CHỜ ĐỢI</a>
+        </div>
+    </section>
+
+    <!-- Location 1 -->
+    <section class="location-section" style="background-color: #fff;">
+        <div class="container location-grid">
+            <div class="loc-content">
+                <h2 class="loc-title">KCN TRUNG HÀ - PHÚ THỌ</h2>
+                <h3 class="loc-sub">VỊ TRÍ CHIẾN LƯỢC</h3>
+                <ul class="loc-list">
+                    <li>Cách Trung tâm Hà Nội 60 phút di chuyển (70km)</li>
+                    <li>Sân bay Nội Bài: 50 phút (65km)</li>
+                    <li>Cửa khẩu Lào Cai: 3.5 giờ (240km)</li>
+                    <li>Cảng Hải Phòng: 2.5 giờ (170km)</li>
+                    <li>Nằm tại ngã ba sông Hồng và sông Đà, thuận lợi giao thương thủy bộ.</li>
+                </ul>
+                <div class="loc-buttons">
+                    <a href="tel:0900000000" class="btn-red">NHẬN TƯ VẤN</a>
+                    <a href="#" class="btn-green">XEM VỊ TRÍ GOOGLE MAP</a>
+                </div>
+            </div>
+            <div class="loc-map">
+                <img src="assets/images/aerial_factory.png" alt="Bản đồ vị trí KCN Trung Hà" class="map-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers 1 -->
+    <section class="offers-section" style="background-color: #fff; padding-top: 20px;">
+        <div class="container">
+            <h2 class="offers-title">ƯU ĐÃI ĐẦU TƯ</h2>
+            <div class="offers-grid">
+                <div class="offer-box">
+                    <img src="assets/images/interior_factory.png" alt="Ưu đãi thuế">
+                    <div class="offer-box-content">ƯU ĐÃI THUẾ & HỖ TRỢ ĐẦU TƯ</div>
+                </div>
+                <div class="offer-box">
+                    <img src="assets/images/z7785901889175_7c9d549d0be200ce538456d0451a61cd.jpg" alt="Ngành nghề thu hút">
+                    <div class="offer-box-content">NGÀNH NGHỀ THU HÚT ĐẦU TƯ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Text 2 -->
+    <section class="intro-section" style="padding-top: 40px; border-top: 1px solid #f0f0f0;">
+        <div class="container">
+            <h2 class="intro-title color-magenta">KCN CỔ TIẾT - PHÚ THỌ</h2>
+            <p class="intro-desc color-magenta">Hạ tầng đồng bộ - Quy mô mở rộng</p>
+            <a href="#" class="btn-magenta">VẬN HÀNH NGAY - KHÔNG CẦN CHỜ ĐỢI</a>
+        </div>
+    </section>
+
+    <!-- Location 2 -->
+    <section class="location-section" style="background-color: #fafafa;">
+        <div class="container location-grid">
+            <div class="loc-content">
+                <h2 class="loc-title">KCN CỔ TIẾT - PHÚ THỌ</h2>
+                <h3 class="loc-sub">VỊ TRÍ CHIẾN LƯỢC</h3>
+                <ul class="loc-list">
+                    <li>Cách Trung tâm Hà Nội 75 phút di chuyển (85km)</li>
+                    <li>Sân bay Nội Bài: 60 phút (80km)</li>
+                    <li>Nút giao Cao tốc Nội Bài - Lào Cai (IC9): 15 phút (15km)</li>
+                    <li>Cảng Hải Phòng: 2.5 giờ (180km)</li>
+                    <li>Kết nối thuận tiện đi các tỉnh phía Tây Bắc và vùng kinh tế trọng điểm.</li>
+                </ul>
+                <div class="loc-buttons">
+                    <a href="tel:0900000000" class="btn-red">NHẬN TƯ VẤN</a>
+                    <a href="#" class="btn-green">XEM VỊ TRÍ GOOGLE MAP</a>
+                </div>
+            </div>
+            <div class="loc-map">
+                <img src="assets/images/z7785901904159_b3eaa8c1fc4112d0cbdd14efe704529d.jpg" alt="Bản đồ vị trí KCN Cổ Tiết" class="map-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers 2 -->
+    <section class="offers-section" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="offers-title">HỖ TRỢ TRỌN GÓI</h2>
+            <div class="offers-grid">
+                <div class="offer-box">
+                    <img src="assets/images/z7785901918560_1150d48c9c4f43204c0c31629901d8f0.jpg" alt="Hỗ trợ pháp lý">
+                    <div class="offer-box-content">HỖ TRỢ PHÁP LÝ NHANH CHÓNG</div>
+                </div>
+                <div class="offer-box">
+                    <img src="assets/images/z7785901913433_5861751b5076d731ec691d57c3774813.jpg" alt="Hạ tầng">
+                    <div class="offer-box-content">HẠ TẦNG PCCC & ĐIỆN NƯỚC ĐẠT CHUẨN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 60px;"></div>
+
+    <!-- Floating Buttons -->
+    <a href="tel:0900000000" class="floating-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.03 21c.73 0 .99-.67.99-1.24v-3.38c0-.54-.45-.99-.99-.99z"/></svg>
+    </a>
+    <a href="https://zalo.me" class="floating-zalo" target="_blank">Zalo</a>
+
+</body>
+</html>
