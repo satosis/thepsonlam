@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xuongsonlam.com/</loc>
+    <loc>https://www.xuongsonlam.com/</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/nha-xuong-trung-ha.html</loc>
+    <loc>https://www.xuongsonlam.com/nha-xuong-trung-ha.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/nha-xuong-co-tiet.html</loc>
+    <loc>https://www.xuongsonlam.com/nha-xuong-co-tiet.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/projects.html</loc>
+    <loc>https://www.xuongsonlam.com/projects.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/services.html</loc>
+    <loc>https://www.xuongsonlam.com/services.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/gioi-thieu.html</loc>
+    <loc>https://www.xuongsonlam.com/chothuenhaxuong.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/tin-tuc.html</loc>
+    <loc>https://www.xuongsonlam.com/tin-tuc.html</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xuongsonlam.com/lien-he.html</loc>
-    <lastmod>2026-06-13</lastmod>
+    <loc>https://www.xuongsonlam.com/lien-he.html</loc>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.xuongsonlam.com/xem-360.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Xem nhà xưởng 360° - THÉP SƠN LÂM</title>
+    <meta name="description" content="Trải nghiệm xem nhà xưởng 360° tại KCN Trung Hà và KCN Cổ Tiết, Phú Thọ - THÉP SƠN LÂM | Sonlamfactory.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="THÉP SƠN LÂM | Sonlamfactory">
+    <meta name="theme-color" content="#0b1c30">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="THÉP SƠN LÂM | Sonlamfactory">
+    <meta property="og:title" content="Xem nhà xưởng 360° - THÉP SƠN LÂM">
+    <meta property="og:description" content="Trải nghiệm xem nhà xưởng 360° tại KCN Trung Hà và KCN Cổ Tiết, Phú Thọ.">
+    <meta property="og:image" content="https://www.xuongsonlam.com/assets/og-image.svg">
+
+    <style>
+        /* ============================================================
+           360° Viewer — Standalone Styles
+           ============================================================ */
+        :root {
+            --v-primary: #004b41;
+            --v-accent: #fd761a;
+            --v-accent-hover: #e06310;
+            --v-bg-dark: #0b1c30;
+            --v-font-heading: 'Outfit', sans-serif;
+            --v-font-body: 'Inter', sans-serif;
+            --v-radius: 12px;
+            --v-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            font-family: var(--v-font-body);
+            background: #000;
+            color: #fff;
+        }
+
+        /* ---------- Canvas ---------- */
+        #panorama-canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            cursor: grab;
+        }
+        #panorama-canvas:active { cursor: grabbing; }
+
+        /* ---------- Top Bar ---------- */
+        .viewer-topbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            z-index: 100;
+            pointer-events: none;
+        }
+        .viewer-topbar > * { pointer-events: auto; }
+
+        .viewer-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--v-font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 18px;
+            border-radius: var(--v-radius);
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: var(--v-transition);
+        }
+        .viewer-back:hover {
+            background: rgba(255,255,255,0.22);
+            transform: translateY(-1px);
+        }
+
+        .viewer-title {
+            font-family: var(--v-font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .viewer-title .badge-360 {
+            background: var(--v-accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- Controls (Bottom) ---------- */
+        .viewer-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .ctrl-btn {
+            width: 48px; height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--v-transition);
+            position: relative;
+        }
+        .ctrl-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.08);
+        }
+        .ctrl-btn.active {
+            background: var(--v-accent);
+            border-color: var(--v-accent);
+        }
+        .ctrl-btn .material-symbols-outlined {
+            font-size: 22px;
+        }
+
+        .ctrl-btn .tooltip {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.85);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .ctrl-btn:hover .tooltip { opacity: 1; }
+
+        /* ---------- Zoom Indicator ---------- */
+        .zoom-indicator {
+            position: fixed;
+            bottom: 86px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .zoom-indicator.visible { opacity: 1; }
+
+        /* ---------- Loading ---------- */
+        .viewer-loading {
+            position: fixed;
+            inset: 0;
+            background: var(--v-bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            transition: opacity 0.6s ease;
+        }
+        .viewer-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-ring {
+            width: 64px; height: 64px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: var(--v-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loader-text {
+            margin-top: 20px;
+            font-family: var(--v-font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+        .loader-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--v-accent), #ff9a44);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* ---------- Instruction Overlay ---------- */
+        .instruction-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 150;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        .instruction-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .instruction-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 40px 48px;
+            text-align: center;
+            max-width: 420px;
+            animation: fadeUp 0.6s ease;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .instruction-icon {
+            font-size: 52px;
+            margin-bottom: 16px;
+            color: var(--v-accent);
+        }
+        .instruction-card h2 {
+            font-family: var(--v-font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .instruction-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+        .instruction-card .hint {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 20px;
+        }
+
+        .instruction-gestures {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin: 24px 0 8px;
+        }
+        .gesture-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .gesture-item .material-symbols-outlined {
+            font-size: 30px;
+            color: var(--v-accent);
+        }
+        .gesture-item span:last-child {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+
+        /* ---------- Location Selector ---------- */
+        .location-nav {
+            position: fixed;
+            bottom: 86px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            padding: 6px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .loc-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 24px;
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            font-family: var(--v-font-heading);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--v-transition);
+            white-space: nowrap;
+        }
+        .loc-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+        .loc-btn.active {
+            background: var(--v-accent);
+            color: #fff;
+        }
+
+        /* ---------- Error Screen ---------- */
+        .viewer-error {
+            position: fixed;
+            inset: 0;
+            background: var(--v-bg-dark);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            text-align: center;
+            padding: 24px;
+        }
+        .viewer-error.show { display: flex; }
+        .viewer-error .material-symbols-outlined {
+            font-size: 64px;
+            color: var(--v-accent);
+            margin-bottom: 16px;
+        }
+        .viewer-error h2 {
+            font-family: var(--v-font-heading);
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .viewer-error p {
+            color: rgba(255,255,255,0.6);
+            max-width: 400px;
+            margin-bottom: 24px;
+        }
+        .viewer-error a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--v-accent);
+            color: #fff;
+            border-radius: var(--v-radius);
+            text-decoration: none;
+            font-family: var(--v-font-heading);
+            font-weight: 600;
+            transition: var(--v-transition);
+        }
+        .viewer-error a:hover {
+            background: var(--v-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 600px) {
+            .viewer-topbar { height: 56px; padding: 0 12px; }
+            .viewer-back { padding: 8px 12px; font-size: 0.85rem; }
+            .viewer-back .back-text { display: none; }
+            .viewer-title { font-size: 0.9rem; }
+            .instruction-card { padding: 28px 24px; margin: 16px; }
+            .instruction-card h2 { font-size: 1.2rem; }
+            .instruction-gestures { gap: 20px; }
+            .ctrl-btn { width: 42px; height: 42px; }
+            .location-nav { bottom: 78px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="viewer-loading" id="loading">
+        <div class="loader-ring"></div>
+        <p class="loader-text">Đang tải ảnh 360°...</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Error Screen -->
+    <div class="viewer-error" id="error-screen">
+        <span class="material-symbols-outlined">error_outline</span>
+        <h2>Không thể tải ảnh 360°</h2>
+        <p>Vui lòng kiểm tra kết nối mạng và thử lại.</p>
+        <a href="javascript:location.reload()">
+            <span class="material-symbols-outlined" style="font-size:18px">refresh</span>
+            Thử lại
+        </a>
+    </div>
+
+    <!-- Instruction Overlay -->
+    <div class="instruction-overlay" id="instructions">
+        <div class="instruction-card">
+            <div class="instruction-icon">🏭</div>
+            <h2>Xem Nhà Xưởng 360°</h2>
+            <p>Kéo để xoay góc nhìn, cuộn để phóng to/thu nhỏ.</p>
+            <div class="instruction-gestures">
+                <div class="gesture-item">
+                    <span class="material-symbols-outlined">swipe</span>
+                    <span>Kéo xoay</span>
+                </div>
+                <div class="gesture-item">
+                    <span class="material-symbols-outlined">pinch_zoom_in</span>
+                    <span>Phóng to</span>
+                </div>
+                <div class="gesture-item">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                    <span>Toàn màn hình</span>
+                </div>
+            </div>
+            <p class="hint">Nhấn bất kỳ đâu để bắt đầu</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="viewer-topbar">
+        <a href="javascript:history.back()" class="viewer-back" id="back-btn">
+            <span class="material-symbols-outlined" style="font-size:20px">arrow_back</span>
+            <span class="back-text">Quay lại</span>
+        </a>
+        <div class="viewer-title">
+            <span id="location-label">Nhà xưởng</span>
+            <span class="badge-360">360°</span>
+        </div>
+    </div>
+
+    <!-- Location Switcher -->
+    <div class="location-nav" id="location-nav">
+        <button class="loc-btn" data-location="trung-ha" id="btn-trung-ha">KCN Trung Hà</button>
+        <button class="loc-btn" data-location="co-tiet" id="btn-co-tiet">KCN Cổ Tiết</button>
+    </div>
+
+    <!-- Bottom Controls -->
+    <div class="viewer-controls">
+        <button class="ctrl-btn" id="btn-autorotate" title="Tự động xoay">
+            <span class="material-symbols-outlined">360</span>
+            <span class="tooltip">Tự động xoay</span>
+        </button>
+        <button class="ctrl-btn" id="btn-zoom-in" title="Phóng to">
+            <span class="material-symbols-outlined">zoom_in</span>
+            <span class="tooltip">Phóng to</span>
+        </button>
+        <button class="ctrl-btn" id="btn-zoom-out" title="Thu nhỏ">
+            <span class="material-symbols-outlined">zoom_out</span>
+            <span class="tooltip">Thu nhỏ</span>
+        </button>
+        <button class="ctrl-btn" id="btn-reset" title="Đặt lại góc nhìn">
+            <span class="material-symbols-outlined">restart_alt</span>
+            <span class="tooltip">Đặt lại</span>
+        </button>
+        <button class="ctrl-btn" id="btn-fullscreen" title="Toàn màn hình">
+            <span class="material-symbols-outlined">fullscreen</span>
+            <span class="tooltip">Toàn màn hình</span>
+        </button>
+    </div>
+
+    <!-- Zoom Indicator -->
+    <div class="zoom-indicator" id="zoom-indicator">100%</div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="panorama-canvas"></canvas>
+
+    <!-- Three.js from CDN (ES Module) -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // ============================================================
+        //  Configuration
+        // ============================================================
+        const LOCATIONS = {
+            'trung-ha': {
+                label: 'KCN Trung Hà',
+                image: 'assets/images/interior_factory.png',
+                backUrl: 'nha-xuong-trung-ha.html'
+            },
+            'co-tiet': {
+                label: 'KCN Cổ Tiết',
+                image: 'assets/images/z7785901913433_5861751b5076d731ec691d57c3774813.jpg',
+                backUrl: 'nha-xuong-co-tiet.html'
+            }
+        };
+
+        // ============================================================
+        //  DOM refs
+        // ============================================================
+        const canvas = document.getElementById('panorama-canvas');
+        const loadingEl = document.getElementById('loading');
+        const progressBar = document.getElementById('progress-bar');
+        const errorScreen = document.getElementById('error-screen');
+        const instructionEl = document.getElementById('instructions');
+        const locationLabel = document.getElementById('location-label');
+        const backBtn = document.getElementById('back-btn');
+        const zoomIndicator = document.getElementById('zoom-indicator');
+
+        const btnAutorotate = document.getElementById('btn-autorotate');
+        const btnZoomIn = document.getElementById('btn-zoom-in');
+        const btnZoomOut = document.getElementById('btn-zoom-out');
+        const btnReset = document.getElementById('btn-reset');
+        const btnFullscreen = document.getElementById('btn-fullscreen');
+
+        const btnTrungHa = document.getElementById('btn-trung-ha');
+        const btnCoTiet = document.getElementById('btn-co-tiet');
+
+        // ============================================================
+        //  Determine current location
+        // ============================================================
+        const params = new URLSearchParams(window.location.search);
+        let currentLocation = params.get('location') || 'trung-ha';
+        if (!LOCATIONS[currentLocation]) currentLocation = 'trung-ha';
+
+        // ============================================================
+        //  Three.js Setup
+        // ============================================================
+        const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            alpha: false
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1100
+        );
+        camera.position.set(0, 0, 0.1);
+
+        // Orbit Controls
+        const controls = new OrbitControls(camera, canvas);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.enableZoom = true;
+        controls.enablePan = false;
+        controls.rotateSpeed = -0.3;
+        controls.minDistance = 0.1;
+        controls.maxDistance = 0.1;
+        controls.minPolarAngle = Math.PI * 0.1;
+        controls.maxPolarAngle = Math.PI * 0.9;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.4;
+
+        // Zoom via FOV
+        const MIN_FOV = 30;
+        const MAX_FOV = 100;
+        const DEFAULT_FOV = 75;
+
+        // Sphere geometry (inside-out)
+        const sphereGeometry = new THREE.SphereGeometry(500, 64, 40);
+        sphereGeometry.scale(-1, 1, 1); // Invert to render inside
+
+        let sphereMaterial = new THREE.MeshBasicMaterial({ color: 0x111111 });
+        let sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        scene.add(sphereMesh);
+
+        // Texture loader
+        const textureLoader = new THREE.TextureLoader();
+        const loadingManager = new THREE.LoadingManager();
+
+        loadingManager.onProgress = (url, loaded, total) => {
+            const pct = Math.round((loaded / total) * 100);
+            progressBar.style.width = pct + '%';
+        };
+
+        // ============================================================
+        //  Load panorama image
+        // ============================================================
+        function loadPanorama(locationKey) {
+            const loc = LOCATIONS[locationKey];
+            if (!loc) return;
+
+            currentLocation = locationKey;
+
+            // Update UI
+            locationLabel.textContent = loc.label;
+            document.title = `Xem 360° ${loc.label} - THÉP SƠN LÂM`;
+            backBtn.href = loc.backUrl;
+
+            // Update location buttons
+            btnTrungHa.classList.toggle('active', locationKey === 'trung-ha');
+            btnCoTiet.classList.toggle('active', locationKey === 'co-tiet');
+
+            // Update URL without reload
+            const newUrl = `${window.location.pathname}?location=${locationKey}`;
+            history.replaceState(null, '', newUrl);
+
+            // Show loading
+            loadingEl.classList.remove('hidden');
+            progressBar.style.width = '0%';
+
+            // Simulate slight progress for UX
+            let fakeProgress = 0;
+            const fakeInterval = setInterval(() => {
+                fakeProgress += Math.random() * 15;
+                if (fakeProgress > 85) fakeProgress = 85;
+                progressBar.style.width = fakeProgress + '%';
+            }, 200);
+
+            const loader = new THREE.TextureLoader();
+            loader.load(
+                loc.image,
+                (texture) => {
+                    clearInterval(fakeInterval);
+                    progressBar.style.width = '100%';
+
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    texture.minFilter = THREE.LinearFilter;
+                    texture.magFilter = THREE.LinearFilter;
+
+                    // Replace material
+                    if (sphereMaterial.map) sphereMaterial.map.dispose();
+                    sphereMaterial.dispose();
+
+                    sphereMaterial = new THREE.MeshBasicMaterial({ map: texture });
+                    sphereMesh.material = sphereMaterial;
+
+                    setTimeout(() => {
+                        loadingEl.classList.add('hidden');
+                    }, 400);
+                },
+                (xhr) => {
+                    // XHR progress
+                    if (xhr.total > 0) {
+                        clearInterval(fakeInterval);
+                        const pct = Math.round((xhr.loaded / xhr.total) * 100);
+                        progressBar.style.width = pct + '%';
+                    }
+                },
+                (err) => {
+                    clearInterval(fakeInterval);
+                    console.error('Failed to load panorama:', err);
+                    loadingEl.classList.add('hidden');
+                    errorScreen.classList.add('show');
+                }
+            );
+        }
+
+        // ============================================================
+        //  Hover-to-pan and Animation loop
+        // ============================================================
+        let mouseX = 0;
+        let mouseY = 0;
+        let isDragging = false;
+        
+        window.addEventListener('mousemove', (event) => {
+            // Calculate mouse position relative to center (-1 to 1)
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+
+            // Subtle hover-to-pan effect (rotate the sphere slightly)
+            if (!isDragging) {
+                const targetRotY = mouseX * 0.3; // Max pan angle Y
+                const targetRotX = -mouseY * 0.15; // Max pan angle X
+                
+                sphereMesh.rotation.y += (targetRotY - sphereMesh.rotation.y) * 0.05;
+                sphereMesh.rotation.x += (targetRotX - sphereMesh.rotation.x) * 0.05;
+            } else {
+                // Gently reset sphere rotation when dragging
+                sphereMesh.rotation.y += (0 - sphereMesh.rotation.y) * 0.1;
+                sphereMesh.rotation.x += (0 - sphereMesh.rotation.x) * 0.1;
+            }
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // ============================================================
+        //  Resize handler
+        // ============================================================
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // ============================================================
+        //  FOV-based Zoom (scroll wheel)
+        // ============================================================
+        let zoomTimeout;
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY * 0.05;
+            camera.fov = THREE.MathUtils.clamp(camera.fov + delta, MIN_FOV, MAX_FOV);
+            camera.updateProjectionMatrix();
+            showZoomLevel();
+        }, { passive: false });
+
+        function showZoomLevel() {
+            const zoomPct = Math.round(((MAX_FOV - camera.fov) / (MAX_FOV - MIN_FOV)) * 100 + 100);
+            zoomIndicator.textContent = zoomPct + '%';
+            zoomIndicator.classList.add('visible');
+            clearTimeout(zoomTimeout);
+            zoomTimeout = setTimeout(() => {
+                zoomIndicator.classList.remove('visible');
+            }, 1200);
+        }
+
+        // Touch pinch zoom
+        let touchStartDist = 0;
+        let touchStartFov = DEFAULT_FOV;
+
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                const dx = e.touches[0].pageX - e.touches[1].pageX;
+                const dy = e.touches[0].pageY - e.touches[1].pageY;
+                touchStartDist = Math.sqrt(dx * dx + dy * dy);
+                touchStartFov = camera.fov;
+            }
+        }, { passive: true });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2) {
+                const dx = e.touches[0].pageX - e.touches[1].pageX;
+                const dy = e.touches[0].pageY - e.touches[1].pageY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const scale = touchStartDist / dist;
+                camera.fov = THREE.MathUtils.clamp(touchStartFov * scale, MIN_FOV, MAX_FOV);
+                camera.updateProjectionMatrix();
+                showZoomLevel();
+            }
+        }, { passive: true });
+
+        // ============================================================
+        //  Control Buttons
+        // ============================================================
+
+        // Auto-rotate toggle
+        btnAutorotate.classList.add('active'); // starts active
+        btnAutorotate.addEventListener('click', () => {
+            controls.autoRotate = !controls.autoRotate;
+            btnAutorotate.classList.toggle('active', controls.autoRotate);
+        });
+
+        // Zoom buttons
+        btnZoomIn.addEventListener('click', () => {
+            camera.fov = THREE.MathUtils.clamp(camera.fov - 10, MIN_FOV, MAX_FOV);
+            camera.updateProjectionMatrix();
+            showZoomLevel();
+        });
+
+        btnZoomOut.addEventListener('click', () => {
+            camera.fov = THREE.MathUtils.clamp(camera.fov + 10, MIN_FOV, MAX_FOV);
+            camera.updateProjectionMatrix();
+            showZoomLevel();
+        });
+
+        // Reset view
+        btnReset.addEventListener('click', () => {
+            camera.fov = DEFAULT_FOV;
+            camera.updateProjectionMatrix();
+            controls.reset();
+            showZoomLevel();
+        });
+
+        // Fullscreen
+        btnFullscreen.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+                btnFullscreen.querySelector('.material-symbols-outlined').textContent = 'fullscreen_exit';
+            } else {
+                document.exitFullscreen();
+                btnFullscreen.querySelector('.material-symbols-outlined').textContent = 'fullscreen';
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const icon = btnFullscreen.querySelector('.material-symbols-outlined');
+            icon.textContent = document.fullscreenElement ? 'fullscreen_exit' : 'fullscreen';
+        });
+
+        // ============================================================
+        //  Location Switcher
+        // ============================================================
+        btnTrungHa.addEventListener('click', () => {
+            if (currentLocation !== 'trung-ha') loadPanorama('trung-ha');
+        });
+        btnCoTiet.addEventListener('click', () => {
+            if (currentLocation !== 'co-tiet') loadPanorama('co-tiet');
+        });
+
+        // ============================================================
+        //  Instructions Overlay
+        // ============================================================
+        const instructionDismissed = sessionStorage.getItem('pano-instruction-seen');
+        if (instructionDismissed) {
+            instructionEl.classList.add('hidden');
+        }
+
+        instructionEl.addEventListener('click', () => {
+            instructionEl.classList.add('hidden');
+            sessionStorage.setItem('pano-instruction-seen', '1');
+        });
+
+        // Also dismiss on first interaction with canvas
+        canvas.addEventListener('pointerdown', () => {
+            if (!instructionEl.classList.contains('hidden')) {
+                instructionEl.classList.add('hidden');
+                sessionStorage.setItem('pano-instruction-seen', '1');
+            }
+        }, { once: true });
+
+        // ============================================================
+        //  Handle user interactions (drag state & auto-rotate)
+        // ============================================================
+        controls.addEventListener('start', () => {
+            isDragging = true;
+            controls.autoRotate = false;
+            btnAutorotate.classList.remove('active');
+        });
+        let autoRotateTimeout;
+        controls.addEventListener('end', () => {
+            isDragging = false;
+            clearTimeout(autoRotateTimeout);
+            autoRotateTimeout = setTimeout(() => {
+                controls.autoRotate = true;
+                btnAutorotate.classList.add('active');
+            }, 5000); // Resume after 5s idle
+        });
+
+        // ============================================================
+        //  Initial Load
+        // ============================================================
+        loadPanorama(currentLocation);
+
+    </script>
+</body>
+</html>

@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (projectsSlider && sliderPrev && sliderNext) {
         const projectsData = [
-            { "area": "4.032 m² & 2.730 m²", "bays": "-", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "detailUrl": "nha-xuong-trung-ha.html", "height": "10.85m", "id": 1, "load": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng KCN Trung Hà" },
-            { "area": "Theo hiện trạng", "bays": "-", "description": "KCN Cổ Tiết. Hạ tầng đồng bộ, phù hợp ngành sản xuất sạch.", "detailUrl": "nha-xuong-co-tiet.html", "height": "8m", "id": 2, "load": "5 Tấn/m²", "location": "KCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng KCN Cổ Tiết" }
+            { "area": "4.032 m² & 2.730 m²", "pccc": "Tự động", "description": "KCN Trung Hà, Lô E5. PCCC tự động, trạm XLNT.", "detailUrl": "nha-xuong-trung-ha.html", "height": "10.85m", "id": 1, "load": "3 Tấn/m²", "location": "KCN Trung Hà, Phú Thọ", "name": "Nhà xưởng KCN Trung Hà" },
+            { "area": "Theo hiện trạng", "pccc": "Tự động", "description": "KCN Cổ Tiết. Hạ tầng đồng bộ, phù hợp ngành sản xuất sạch.", "detailUrl": "nha-xuong-co-tiet.html", "height": "8m", "id": 2, "load": "5 Tấn/m²", "location": "KCN Cổ Tiết, Phú Thọ", "name": "Nhà xưởng KCN Cổ Tiết" }
         ];
 
         let activeIndex = 0;
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img src="${localImage}" class="slider-img" alt="${project.name}">
                         <div class="slider-img-overlay"></div>
                         <div class="slider-badge-container">
-                            <span class="badge badge-primary uppercase tracking-widest">Available Now</span>
+                            <span class="badge badge-primary uppercase tracking-widest">Sẵn sàng</span>
                             <p class="location-text"><span class="material-symbols-outlined">location_on</span> ${project.location}</p>
                         </div>
                     </div>
@@ -224,8 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <strong class="spec-value">${project.height}</strong>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Cửa xuất nhập</span>
-                                    <strong class="spec-value">${project.bays}</strong>
+                                    <span class="spec-label">PCCC</span>
+                                    <strong class="spec-value">${project.pccc}</strong>
                                 </div>
                                 <div class="spec-item">
                                     <span class="spec-label">Sức chịu tải</span>
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="info-actions">
-                            <a href="contact.html" class="btn btn-primary btn-full flex-center gap-2">
+                            <a href="lien-he.html" class="btn btn-primary btn-full flex-center gap-2">
                                 <span class="material-symbols-outlined">call</span> Liên hệ ngay
                             </a>
                             <a href="${project.detailUrl}" class="btn btn-outline icon-btn flex-center" aria-label="Xem chi tiết ${project.name}">

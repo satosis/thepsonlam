@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="info-actions">
-                            <a href="contact.html" class="btn btn-primary btn-full flex-center gap-2">
+                            <a href="lien-he.html" class="btn btn-primary btn-full flex-center gap-2">
                                 <span class="material-symbols-outlined">call</span> Liên hệ ngay
                             </a>
                             <a href="${project.detailUrl}" class="btn btn-outline icon-btn flex-center" aria-label="Xem chi tiết ${project.name}">
