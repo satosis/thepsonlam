@@ -321,13 +321,46 @@
             .main-title { font-size: 28px; }
             .btn-red-pill { font-size: 16px; padding: 14px 35px; bottom: -24px;}
             .offer-box img { height: 250px; }
+            .btn-back { top: 15px; left: 15px; padding: 8px 12px; font-size: 13px; }
+        }
+
+        .btn-back {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #b61e5b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            background: #fff;
+            border: 2px solid #b61e5b;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        .btn-back:hover {
+            background: #b61e5b;
+            color: #fff;
+        }
+        .btn-back svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
 
     <!-- Header & Titles -->
-    <header class="top-header">
+    <header class="top-header" style="position: relative;">
+        <a href="index.html" class="btn-back">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            Quay lại
+        </a>
         <span class="logo-text">THÉP SƠN LÂM</span>
         <span class="logo-sub">Sonlamfactory</span>
     </header>
